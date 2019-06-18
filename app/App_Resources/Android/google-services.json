@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "712878885618",
+    "firebase_url": "https://intersport-app-a8483.firebaseio.com",
+    "project_id": "intersport-app-a8483",
+    "storage_bucket": "intersport-app-a8483.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712878885618:android:459163bd31908909",
+        "android_client_info": {
+          "package_name": "org.nativescript.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "712878885618-41jqrfg3og0l8r9cledfjqtdevj7so8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpR8YGR1-cS80AE2r55OOin7tjtr9mTtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "712878885618-41jqrfg3og0l8r9cledfjqtdevj7so8t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "712878885618-dls3cha81c4o8bohnu43qd1m67ddp039.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.intersport.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
