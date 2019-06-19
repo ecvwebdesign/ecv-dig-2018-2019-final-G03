@@ -6,7 +6,8 @@
                 <StackLayout>
                     <TextField v-model="email" hint="Email"/>
                     <TextField v-model="password" hint="Password"/>
-                    <Button text="Connexion" @tap="signin"></Button>*
+                    <Button text="Connexion" @tap="signin"></Button>
+                    *
                 </StackLayout>
                 <StackLayout>
                     <TextField v-model="email" hint="Email"/>
@@ -51,7 +52,15 @@
             }
         },
         created() {
-            firebase.init({}).then((instance) => {
+            firebase.init({
+                showNotificationsWhenInForeground: true,
+                onMessageReceivedCallback(message) {
+                    console.log("Title: " + message.title);
+                    console.log("Body: " + message.body);
+                    // if your server passed a custom property called 'foo', then do this:
+                    console.log("Value of 'foo': " + message.data.foo);
+                }
+            }).then((instance) => {
                 console.log("[*] Firebase was successfully initialised");
             }, (error) => {
                 console.log("[*] Huston we've an initializationerror: " + error);
@@ -70,15 +79,15 @@
         methods: {
             openCamera() {
                 camera.takePicture()
-                    .then(function (imageAsset) {
+                    .then((imageAsset) => {
                         console.log("Result is an image asset instance");
                         var image = new imageModule.Image();
                         image.src = imageAsset;
-                    }).catch(function (err) {
+                    }).catch((err) => {
                     console.log("Error -> " + err.message);
                 });
             },
-            showLocation: function () {
+            showLocation() {
                 geoLocation.watchLocation(location => {
                     this.currentGeoLocation = location;
                 }, error => {
@@ -88,7 +97,7 @@
                     updateDistance: 10,
                     minimumUpdateTime: 1000 * 1
                 });
-            }, enableLocationServices: function () {
+            }, enableLocationServices() {
                 geoLocation.isEnabled().then(enabled => {
                     if (!enabled) {
                         geoLocation.enableLocationRequest().then(() => this.showLocation());
@@ -133,12 +142,11 @@
                 firebase.createUser({
                     email: this.email,
                     password: this.password
-                }).then(
-                    function (user) {
-                    console.log(user);
+                }).then((user) => {
+                        console.log(user);
                     },
-                    function (errorMessage) {
-                    console.log(errorMessage)
+                    (errorMessage) => {
+                        console.log(errorMessage)
                     }
                 );
             },
