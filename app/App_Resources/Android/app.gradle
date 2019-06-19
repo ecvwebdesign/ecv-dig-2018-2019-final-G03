@@ -24,3 +24,7 @@ if(settingsGradleFile.exists())
 {
     apply from: settingsGradleFile;
 }
+
+configurations {
+    compile.exclude group: 'com.google.zxing'
+}
