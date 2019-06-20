@@ -1,13 +1,9 @@
 <template>
     <Page>
-        <ActionBar>
-            <StackLayout orientation="horizontal">
-                <Image src="~/assets/images/intersport.png" width="150"/>
-            </StackLayout>
-        </ActionBar>
+        <TopMenu/>
         <GridLayout columns="*" rows="*">
             <StackLayout>
-                <StackLayout>
+                <StackLayout class="border">
                     <TextField v-model="email" hint="Email"/>
                     <TextField v-model="password" hint="Password"/>
                     <Button text="Connexion" @tap="signin"></Button>
@@ -29,11 +25,9 @@
                     <Label :text="'Direction: ' + currentGeoLocation.direction"/>
                 </StackLayout>
                 <Button text="log out" @tap="logout"></Button>
-
-                <Button row="2" class="btn btn-primary btn-rounded-sm" text="back camera, with flip"
-                        @tap="doScanWithBackCamera"></Button>
-
+                <BarCode/>
             </StackLayout>
+            <BottomMenu/>
         </GridLayout>
     </Page>
 </template>
@@ -42,9 +36,12 @@
     import * as geoLocation from "nativescript-geolocation";
     import * as camera from "nativescript-camera";
     import firebase from "nativescript-plugin-firebase";
-    import {BarcodeScanner} from "nativescript-barcodescanner";
+    import TopMenu from "./TopMenu";
+    import BarCode from "./BarCode";
+    import BottomMenu from "./BottomMenu";
 
     export default {
+        components: {BottomMenu, BarCode, TopMenu},
         data() {
             return {
                 currentGeoLocation: {
@@ -159,51 +156,11 @@
             },
             logout() {
                 firebase.logout();
-            },
-            onScanResult(evt) {
-                console.log(`onScanResult: ${evt.text} (${evt.format})`);
-            },
-            doScanWithBackCamera() {
-                this.scan(false);
-            },
-            scan(front) {
-                new BarcodeScanner().scan({
-                    cancelLabel: "EXIT. Also, try the volume buttons!", // iOS only, default 'Close'
-                    cancelLabelBackgroundColor: "#333333", // iOS only, default '#000000' (black)
-                    message: "Use the volume buttons for extra light", // Android only, default is 'Place a barcode inside the viewfinder rectangle to scan it.'
-                    preferFrontCamera: front,     // Android only, default false
-                    showFlipCameraButton: true,   // default false
-                    showTorchButton: true,        // iOS only, default false
-                    torchOn: false,               // launch with the flashlight on (default false)
-                    resultDisplayDuration: 500,   // Android only, default 1500 (ms), set to 0 to disable echoing the scanned text
-                    beepOnScan: true,             // Play or Suppress beep on scan (default true)
-                    openSettingsIfPermissionWasPreviouslyDenied: true, // On iOS you can send the user to the settings app if access was previously denied
-                    closeCallback: () => {
-                        console.log("Scanner closed @ " + new Date().getTime());
-                    }
-                }).then(
-                    function (result) {
-                        console.log("--- scanned: " + result.text);
-                    },
-                    function (errorMessage) {
-                        console.log("No scan. " + errorMessage);
-                    }
-                );
             }
         }
     }
 </script>
 
 <style scoped>
-    ActionBar {
-        background-color: #ffffff;
-        color: #ffffff;
-    }
 
-    .message {
-        vertical-align: center;
-        text-align: center;
-        font-size: 20;
-        color: #333333;
-    }
 </style>
