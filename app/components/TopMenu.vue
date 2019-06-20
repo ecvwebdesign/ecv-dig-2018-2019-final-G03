@@ -1,14 +1,20 @@
 <template>
     <ActionBar backgroundColor="white">
         <StackLayout orientation="horizontal">
-            <Image src="~/assets/images/intersport.png" width="40%" marginRight="80" marginLeft="100"/>
+            <Image v-if="headerHasImage" src="~/assets/images/intersport.png" width="40%" marginRight="80" marginLeft="100"/>
+            <Label v-else text="Rechercher" textAlignment="center" width="40%" fontSize="23" marginRight="80" marginLeft="100"/>
             <Image src="~/assets/icons/panier.png" width="6%"/>
         </StackLayout>
     </ActionBar>
 </template>
 <script>
     export default {
-        name: "TopMenu"
+        name: "TopMenu",
+        computed: {
+            headerHasImage() {
+                return this.$store.state.headerHasImage
+            }
+        }
     }
 </script>
 
