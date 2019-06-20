@@ -1,13 +1,16 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!"/>
+        <ActionBar>
+            <StackLayout orientation="horizontal">
+                <Image src="~/assets/images/intersport.png" width="150"/>
+            </StackLayout>
+        </ActionBar>
         <GridLayout columns="*" rows="*">
             <StackLayout>
                 <StackLayout>
                     <TextField v-model="email" hint="Email"/>
                     <TextField v-model="password" hint="Password"/>
                     <Button text="Connexion" @tap="signin"></Button>
-                    *
                 </StackLayout>
                 <StackLayout>
                     <TextField v-model="email" hint="Email"/>
@@ -27,7 +30,8 @@
                 </StackLayout>
                 <Button text="log out" @tap="logout"></Button>
 
-                <Button row="2" class="btn btn-primary btn-rounded-sm" text="back camera, with flip" @tap="doScanWithBackCamera"></Button>
+                <Button row="2" class="btn btn-primary btn-rounded-sm" text="back camera, with flip"
+                        @tap="doScanWithBackCamera"></Button>
 
             </StackLayout>
         </GridLayout>
@@ -192,7 +196,7 @@
 
 <style scoped>
     ActionBar {
-        background-color: #53ba82;
+        background-color: #ffffff;
         color: #ffffff;
     }
 
