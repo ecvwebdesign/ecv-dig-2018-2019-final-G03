@@ -1,7 +1,7 @@
 <template>
     <GridLayout rows="*,60">
         <StackLayout row="1" orientation="horizontal" class="divider">
-            <StackLayout width="20%">
+            <StackLayout width="20%" @tap="changePage('home')">
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>
@@ -29,7 +29,12 @@
 
 <script>
     export default {
-        name: "BottomMenu"
+        name: "BottomMenu",
+        methods: {
+            changePage(page) {
+                this.$store.commit('setCurrentPage', page);
+            }
+        }
     }
 </script>
 

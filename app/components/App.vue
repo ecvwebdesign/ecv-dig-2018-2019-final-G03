@@ -26,6 +26,7 @@
                 </StackLayout>
                 <Button text="log out" @tap="logout"></Button>
                 <BarCode/>
+                <Home v-if="currentPage('home')"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -36,12 +37,15 @@
     import * as geoLocation from "nativescript-geolocation";
     import * as camera from "nativescript-camera";
     import firebase from "nativescript-plugin-firebase";
-    import TopMenu from "./TopMenu";
+    import TopMenu from "./Menu/TopMenu";
     import BarCode from "./BarCode";
-    import BottomMenu from "./BottomMenu";
+    import BottomMenu from "./Menu/BottomMenu";
+    import Home from "./Pages/Home";
+    import * as application from "tns-core-modules/application";
+
 
     export default {
-        components: {BottomMenu, BarCode, TopMenu},
+        components: {Home, BottomMenu, BarCode, TopMenu},
         data() {
             return {
                 currentGeoLocation: {
@@ -56,6 +60,7 @@
             }
         },
         created() {
+            let self = this;
             firebase.init({
                 showNotificationsWhenInForeground: true,
                 onMessageReceivedCallback(message) {
@@ -63,6 +68,13 @@
                     console.log("Body: " + message.body);
                     // if your server passed a custom property called 'foo', then do this:
                     console.log("Value of 'foo': " + message.data.foo);
+                },
+                onAuthStateChanged(data) {
+                    if (data.loggedIn) {
+                        self.$store.commit('setUser', data.user);
+                    } else {
+                        self.$store.commit('setUser', null);
+                    }
                 }
             }).then((instance) => {
                 console.log("[*] Firebase was successfully initialised");
@@ -81,6 +93,9 @@
             );
         },
         methods: {
+            currentPage(page) {
+                return this.$store.state.currentPage === page;
+            },
             openCamera() {
                 camera.takePicture()
                     .then((imageAsset) => {
@@ -157,6 +172,9 @@
             logout() {
                 firebase.logout();
             }
+        },
+        computed: {
+
         }
     }
 </script>
