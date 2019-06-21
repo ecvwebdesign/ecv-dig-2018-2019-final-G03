@@ -5,12 +5,12 @@
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>
-            <StackLayout width="20%" @tap="changePage('feature')">
+            <StackLayout width="20%" @tap="changePage('search')">
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>
 
-            <StackLayout width="20%"  @tap="changePage('shop')">
+            <StackLayout width="20%" @tap="changePage('shop')">
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>

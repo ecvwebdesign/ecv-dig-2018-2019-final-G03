@@ -4,6 +4,7 @@
         <GridLayout columns="*" rows="*">
             <StackLayout marginBottom="60">
                 <Home v-if="currentPage === 'home'"/>
+                <Search v-if="currentPage === 'search'"/>
                 <Feature v-if="currentPage === 'feature'"/>
                 <Shop v-if="currentPage === 'shop'"/>
                 <ShopFeature v-if="currentPage === 'shopFeatures'"/>
@@ -22,10 +23,11 @@
     import Feature from "./Feature";
     import Shop from "./Pages/Shop/Shop";
     import ShopFeature from "./Pages/Shop/ShopFeatures";
+    import Search from "./Pages/Search/Search";
 
 
     export default {
-        components: {ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
+        components: {Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
         data() {
             return {
                 email: null,
@@ -57,14 +59,6 @@
             });
         },
         methods: {
-            indexChange: function (args) {
-                let newIndex = args.value
-                switch (newIndex) {
-                    case 0:
-                        changePage('home')
-                }
-                console.log('Current tab index: ' + newIndex)
-            }
         },
         computed: {
             currentPage() {
