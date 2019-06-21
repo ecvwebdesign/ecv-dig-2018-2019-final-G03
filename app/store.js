@@ -7,7 +7,7 @@ export default new Vuex.Store({
     state: {
         headerHasImage: true,
         user: null,
-        currentPage: 'toto',
+        currentPage: 'home',
         currentShop: null
     },
     mutations: {
