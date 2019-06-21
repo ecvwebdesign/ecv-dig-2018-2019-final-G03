@@ -22,8 +22,6 @@
             <Label :text="'Direction: ' + currentGeoLocation.direction"/>
         </StackLayout>
         <Button text="log out" @tap="logout"></Button>
-        <BarCode/>
-        <Home v-if="currentPage === 'home'"/>
     </StackLayout>
 </template>
 
@@ -31,7 +29,7 @@
     import * as geoLocation from "nativescript-geolocation";
     import * as camera from "nativescript-camera";
     import firebase from "nativescript-plugin-firebase";
-    import BarCode from "./BarCode";
+    import BarCode from "./Features/BarCode";
 
     export default {
         name: "Feature",

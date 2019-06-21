@@ -1,12 +1,21 @@
 <template>
-    <Button row="2" class="btn btn-primary btn-rounded-sm" text="back camera, with flip"
-            @tap="doScanWithBackCamera"></Button>
+    <Button width="169" height="169" backgroundImage="~/assets/test/barcode.png" @tap="doScanWithBackCamera"/>
 </template>
 
 <script>
     import {BarcodeScanner} from "nativescript-barcodescanner";
+    import * as camera from "nativescript-camera";
+
     export default {
         name: "BarCode",
+        created() {
+            camera.requestPermissions().then(
+                function success() {
+                },
+                function failure() {
+                }
+            );
+        },
         methods: {
             onScanResult(evt) {
                 console.log(`onScanResult: ${evt.text} (${evt.format})`);

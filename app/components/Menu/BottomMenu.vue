@@ -1,6 +1,6 @@
 <template>
-    <GridLayout rows="*,60" class="relative">
-        <StackLayout row="1" orientation="horizontal" class="divider" backgroundColor="white" height="7%">
+    <GridLayout rows="*,60">
+        <StackLayout row="1" orientation="horizontal" class="divider">
             <StackLayout width="20%" @tap="changePage('home')">
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
@@ -9,7 +9,8 @@
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>
-            <StackLayout width="20%">
+
+            <StackLayout width="20%"  @tap="changePage('shop')">
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>
@@ -32,7 +33,7 @@
     export default {
         name: "BottomMenu",
         created() {
-/*            let self = this;
+            let self = this;
             application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
                 if (self.$store.state.currentPage !== 'home') {
                     args.cancel = true;
@@ -40,7 +41,7 @@
                 } else {
                     args.cancel = false;
                 }
-            });*/
+            });
         },
         methods: {
             changePage(page) {
@@ -61,9 +62,5 @@
     .divider {
         border-top-color: black;
         border-top-width: 2px;
-    }
-    .relative {
-        position: relative;
-        z-index: 10000;
     }
 </style>

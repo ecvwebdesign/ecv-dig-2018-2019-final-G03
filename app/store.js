@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         headerHasImage: true,
+        headerLabel: null,
         user: null,
         currentPage: 'home',
         currentShop: null
@@ -20,8 +21,11 @@ export default new Vuex.Store({
         setCurrentPage: (state, page) => {
             state.currentPage = page;
         },
-        setShop: (state, shop) => {
+        setCurrentShop: (state, shop) => {
             state.currentShop = shop;
+        },
+        setHeaderLabel: (state, headerLabel) => {
+            state.headerLabel = headerLabel;
         },
     },
     actions: {}
