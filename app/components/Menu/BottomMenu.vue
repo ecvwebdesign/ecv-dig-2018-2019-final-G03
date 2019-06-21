@@ -19,7 +19,7 @@
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35"/>
             </StackLayout>
-            <StackLayout width="20%">
+            <StackLayout width="20%" @tap="changePage('account')">
                 <Image src="~/assets/icons/home.png" width="35"/>
                 <Label text="Test" width="35" class="small"/>
             </StackLayout>

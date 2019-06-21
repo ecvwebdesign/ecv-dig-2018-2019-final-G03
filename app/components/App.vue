@@ -5,9 +5,9 @@
             <StackLayout marginBottom="60">
                 <Home v-if="currentPage === 'home'"/>
                 <Search v-if="currentPage === 'search'"/>
-                <Feature v-if="currentPage === 'feature'"/>
                 <Shop v-if="currentPage === 'shop'"/>
                 <ShopFeature v-if="currentPage === 'shopFeatures'"/>
+                <Account v-if="currentPage === 'account'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -24,10 +24,11 @@
     import Shop from "./Pages/Shop/Shop";
     import ShopFeature from "./Pages/Shop/ShopFeatures";
     import Search from "./Pages/Search/Search";
+    import Account from "./Pages/Account/Account";
 
 
     export default {
-        components: {Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
+        components: {Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
         data() {
             return {
                 email: null,
