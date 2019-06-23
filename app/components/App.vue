@@ -48,8 +48,10 @@
                 },
                 onAuthStateChanged(data) {
                     if (data.loggedIn) {
+                        console.log('user add store');
                         self.$store.commit('setUser', data.user);
                     } else {
+                        console.log('user remove store');
                         self.$store.commit('setUser', null);
                     }
                 }
