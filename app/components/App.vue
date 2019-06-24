@@ -59,7 +59,8 @@
                         console.log('user remove store');
                         self.$store.commit('setUser', null);
                     }
-                }
+                },
+                persist: true
             }).then((instance) => {
                 console.log("[*] Firebase was successfully initialised");
             }, (error) => {

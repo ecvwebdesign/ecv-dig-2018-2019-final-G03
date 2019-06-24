@@ -11,20 +11,115 @@ export default new Vuex.Store({
         currentPage: 'home',
         currentShop: null,
         history: ['home'],
+        currentProduct: null,
         currentCategory: null,
         currentSubCategory: null,
+        currentSubSubCategory: null,
         categoryLabels: {
-            football: 'Football',
-            velo: 'Vélo',
-            tennis: 'Tennis',
-            basket: 'Basket-ball',
-        },
-        subCategoryLabels: {
-            maillot: 'Maillot',
-            chaussure: 'Chaussure',
-            ballon: 'Ballon',
-            short: 'Short',
-            raquette: 'Raquette',
+            sportCo: {
+                name: 'Sports collectifs',
+                subCategoryLabels: {
+                    all: {
+                        name: 'Tout voir',
+                        subSubCategoryLabels: {}
+                    },
+                    foot: {
+                        name: 'Football',
+                        subSubCategoryLabels: {
+                            all: 'Tout voir',
+                            chaussure: 'Chaussures de footbal',
+                            maillotNat: 'Maillots et teenues de sélections nationales',
+                            maillotClub: 'Maillots et tenues de club',
+                            equipement: 'Equipement et accessoires',
+                            tenues: 'Tenues d\'entrainement',
+                            event: 'Evènements',
+                        }
+                    },
+                    basket: {
+                        name: 'Basket-ball',
+                        subSubCategoryLabels: {}
+                    },
+                    volley: {
+                        name: 'Volley-ball',
+                        subSubCategoryLabels: {}
+                    },
+                    hand: {
+                        name: 'Handball',
+                        subSubCategoryLabels: {}
+                    },
+                    rugby: {
+                        name: 'Rugby',
+                        subSubCategoryLabels: {}
+                    },
+                }
+            },
+            sportRaquette: {
+                name: 'Sports de raquettes',
+                subCategoryLabels: {
+                    all: 'Tout voir',
+                    tennis: 'Tennis',
+                    bad: 'Badminton',
+                    squash: 'Squash',
+                    padel: 'Padel',
+                    pong: 'Tennis de table',
+                }
+            },
+            sportEau: {
+                name: 'Sports d\'eau',
+                subCategoryLabels: {
+                    natation: 'Natation',
+                    all: 'Tout voir',
+                    plonge: 'Plongée',
+                }
+            },
+            rando: {
+                name: 'Randonnées',
+                subCategoryLabels: {
+                    all: 'Tout voir',
+                    camping: 'Camping',
+                    bivouac: 'Bivouac',
+                }
+            },
+            fitness: {
+                name: 'Fitness',
+                subCategoryLabels: {
+                    all: 'Tout voir',
+                    box: 'Box',
+                    muscu: 'Musculation',
+                }
+            },
+            velo: {
+                name: 'Vélo',
+                subCategoryLabels: {}
+            },
+            equitation: {
+                name: 'Equitation',
+                subCategoryLabels: {}
+            },
+            running: {
+                name: 'Running',
+                subCategoryLabels: {}
+            },
+            all: {
+                name: 'Tous les sports',
+                subCategoryLabels: {}
+            },
+            game: {
+                name: 'Jeux & pleins air',
+                subCategoryLabels: {}
+            },
+            trot: {
+                name: 'Trottinettes, roller, skates',
+                subCategoryLabels: {}
+            },
+            escalade: {
+                name: 'Escalade & alpinisme',
+                subCategoryLabels: {}
+            },
+            ski: {
+                name: 'Ski & snowboard',
+                subCategoryLabels: {}
+            },
         },
     },
     mutations: {
@@ -55,6 +150,12 @@ export default new Vuex.Store({
         },
         setCurrentSubCategory: (state, subCategory) => {
             state.currentSubCategory = subCategory;
+        },
+        setCurrentSubSubCategory: (state, subSubCategory) => {
+            state.currentSubSubCategory = subSubCategory;
+        },
+        setCurrentProduct: (state, product) => {
+            state.currentProduct = product;
         },
     },
     actions: {}
