@@ -10,31 +10,35 @@
             <Image class="logo" src="~/assets/images/intersport.png"></Image>
 
             <StackLayout class="input-field">
-                <TextField class="input" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none" v-model="email" returnKeyType="next"></TextField>
+                <TextField class="input" hint="Email" keyboardType="email" autocorrect="false"
+                           autocapitalizationType="none" v-model="email" returnKeyType="next"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
             <StackLayout class="input-field">
-                <TextField class="input" hint="Password" secure="true" v-model="password" :returnKeyType="!displayRegister ? 'done' : 'next'"></TextField>
+                <TextField class="input" hint="Password" secure="true" v-model="password"
+                           :returnKeyType="!displayRegister ? 'done' : 'next'"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
             <StackLayout v-if="displayRegister" class="input-field">
-                <TextField class="input" hint="Confirm password" secure="true" v-model="passwordConfirm" returnKeyType="done"></TextField>
+                <TextField class="input" hint="Confirm password" secure="true" v-model="passwordConfirm"
+                           returnKeyType="done"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
-            <Button :text="!displayRegister ? 'Connexion' : 'Inscription'" @tap="submit" class="btn btn-primary m-t-20"></Button>
+            <Button :text="!displayRegister ? 'Connexion' : 'Inscription'" @tap="submit"
+                    class="btn btn-primary m-t-20"></Button>
 
             <Label text="ou" textAlignment="center" marginTop="10px" marginBottom="10px"/>
 
-            <FlexboxLayout class="btn btn-google"  justifyContent="center" padding="5" @tap="signinWithGoogle">
-                <Image src="~/assets/icons/google.png"  width="10%" height="100%" marginRight="10"></Image>
+            <FlexboxLayout class="btn btn-google" justifyContent="center" padding="5" @tap="signinWithGoogle">
+                <Image src="~/assets/icons/google.png" width="10%" height="100%" marginRight="10"></Image>
                 <Label text="Google" verticalAlignment="center" marginTop="12px"></Label>
             </FlexboxLayout>
 
             <FlexboxLayout class="btn btn-facebook" justifyContent="center" padding="5" @tap="signinWithFacebook">
-                <Image src="~/assets/icons/facebook.png"  width="10%" height="100%" marginRight="10"></Image>
+                <Image src="~/assets/icons/facebook.png" width="10%" height="100%" marginRight="10"></Image>
                 <Label text="Facebook" verticalAlignment="center" marginTop="12px"></Label>
             </FlexboxLayout>
 
@@ -44,6 +48,11 @@
             <FormattedString>
                 <Span :text="!displayRegister ? 'Pas encore de compte ? ' : 'Retour à la connexion'"></Span>
                 <Span :text="!displayRegister ? 'S\'inscrire' : ''" class="bold"></Span>
+            </FormattedString>
+        </Label>
+        <Label v-if="!user && !isEverOpen" class="login-label sign-up-label" @tap="redirectToHome">
+            <FormattedString>
+                <Span text="Continuer la navigation sans inscription" class="bold"></Span>
             </FormattedString>
         </Label>
     </FlexboxLayout>
@@ -89,6 +98,7 @@
                 firebase.login({
                     type: firebase.LoginType.GOOGLE,
                 }).then((result) => {
+                    this.$store.commit('setIsEverOpen', true);
                     console.log("[*] Google Auth Response: " + JSON.stringify(result));
                 }, (errorMessage) => {
                     console.log("[*] Google Auth Error: " + errorMessage);
@@ -98,6 +108,7 @@
                 firebase.login({
                     type: firebase.LoginType.FACEBOOK,
                 }).then((result) => {
+                    this.$store.commit('setIsEverOpen', true);
                     console.log(firebase.getCurrentUser());
                     console.log("[*] Facebook Auth Response: " + JSON.stringify(result));
                 }, (errorMessage) => {
@@ -110,6 +121,7 @@
                     email: self.email,
                     password: self.password
                 }).then((user) => {
+                        this.$store.commit('setIsEverOpen', true);
                     },
                     (errorMessage) => {
                         console.log(errorMessage)
@@ -126,12 +138,19 @@
                 } else {
                     this.signin();
                 }
+            },
+            redirectToHome() {
+                this.$store.commit('setIsEverOpen', true);
+                this.$store.commit('setCurrentPage', 'home');
             }
         },
 
         computed: {
             user() {
                 return this.$store.state.user;
+            },
+            isEverOpen() {
+                return this.$store.state.isEverOpen;
             }
         },
     }
@@ -143,6 +162,7 @@
         flex-direction: column;
         background-color: white;
     }
+
     .form {
         margin-left: 30;
         margin-right: 30;
@@ -159,6 +179,7 @@
     .input-field {
         margin-bottom: 20;
     }
+
     .input {
         font-size: 18;
         placeholder-color: #A8A8A8;
@@ -194,15 +215,18 @@
         font-weight: 600;
         color: white;
     }
+
     .login-label {
         horizontal-align: center;
         color: #A8A8A8;
         font-size: 16;
         margin-top: 5px;
     }
+
     .sign-up-label {
         margin-bottom: 20;
     }
+
     .bold {
         color: #000000;
     }

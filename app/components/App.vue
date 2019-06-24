@@ -1,5 +1,5 @@
 <template>
-    <Page>
+    <Page v-if="everOpen === true">
         <TopMenu/>
         <GridLayout columns="*" rows="*">
             <StackLayout marginBottom="60">
@@ -13,6 +13,9 @@
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
+    </Page>
+    <Page actionBarHidden="true" v-else>
+        <Opening/>
     </Page>
 </template>
 
@@ -29,12 +32,15 @@
     import Account from "./Pages/Account/Account";
     import SubCategories from "./Pages/Search/SubCategories";
     import ProductList from "./Pages/Search/ProductList";
+    import Opening from "./Pages/Opening/Opening";
 
 
     export default {
         components: {
+            Opening,
             ProductList,
-            SubCategories, Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
+            SubCategories, Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu
+        },
         data() {
             return {
                 email: null,
@@ -67,11 +73,13 @@
                 console.log("[*] Huston we've an initializationerror: " + error);
             });
         },
-        methods: {
-        },
+        methods: {},
         computed: {
             currentPage() {
                 return this.$store.state.currentPage;
+            },
+            everOpen() {
+                return this.$store.state.isEverOpen;
             }
         }
     }

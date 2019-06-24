@@ -121,6 +121,12 @@ export default new Vuex.Store({
                 subCategoryLabels: {}
             },
         },
+        isEverOpen: false,
+        preferences: {
+            peopleType: null,
+            interests: []
+        }
+
     },
     mutations: {
         setHeader: (state, type) => {
@@ -150,6 +156,15 @@ export default new Vuex.Store({
         },
         setCurrentSubCategory: (state, subCategory) => {
             state.currentSubCategory = subCategory;
+        },
+        setIsEverOpen: (state, isEver0pen) => {
+            state.isEverOpen = isEver0pen;
+        },
+        setPreferenceFor: (state, peopleType) => {
+            state.preferences.peopleType = peopleType;
+        },
+        setInterests: (state, interests) => {
+            state.preferences.interests = interests;
         },
         setCurrentSubSubCategory: (state, subSubCategory) => {
             state.currentSubSubCategory = subSubCategory;
