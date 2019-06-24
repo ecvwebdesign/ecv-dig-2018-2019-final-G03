@@ -5,6 +5,8 @@
             <StackLayout marginBottom="60">
                 <Home v-if="currentPage === 'home'"/>
                 <Search v-if="currentPage === 'search'"/>
+                <SubCategories v-if="currentPage === 'subCategories'"/>
+                <ProductList v-if="currentPage === 'productList'"/>
                 <Shop v-if="currentPage === 'shop'"/>
                 <ShopFeature v-if="currentPage === 'shopFeatures'"/>
                 <Account v-if="currentPage === 'account'"/>
@@ -25,15 +27,18 @@
     import ShopFeature from "./Pages/Shop/ShopFeatures";
     import Search from "./Pages/Search/Search";
     import Account from "./Pages/Account/Account";
+    import SubCategories from "./Pages/Search/SubCategories";
+    import ProductList from "./Pages/Search/ProductList";
 
 
     export default {
-        components: {Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
+        components: {
+            ProductList,
+            SubCategories, Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu},
         data() {
             return {
                 email: null,
                 password: null,
-
             }
         },
         created() {

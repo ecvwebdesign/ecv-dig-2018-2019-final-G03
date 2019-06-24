@@ -35,9 +35,11 @@
         created() {
             let self = this;
             application.android.on(application.AndroidApplication.activityBackPressedEvent, (args) => {
+                console.log('ici', self.$store.state.currentPage);
                 if (self.$store.state.currentPage !== 'home') {
                     args.cancel = true;
-                    self.changePage('home');
+                    self.$store.commit('goBackHistory');
+                    console.log('la', self.$store.state.currentPage);
                 } else {
                     args.cancel = false;
                 }
@@ -46,6 +48,7 @@
         methods: {
             changePage(page) {
                 this.$store.commit('setCurrentPage', page);
+                this.$store.commit('addToHistory', page);
             },
             trigger() {
                 this.$refs.fileInput.click()
