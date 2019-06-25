@@ -2,9 +2,15 @@
     <ScrollView>
         <StackLayout>
             <VerticalStack/>
-            <Label text="New products" backgroundColor="red"/>
+            <FlexboxLayout alignContent="center">
+                <Label text="Nouveautés" class="newLabel"/>
+                <SvgImage src="~/assets/images/home/accueil_flechedroite.svg" width="10"/>
+            </FlexboxLayout>
             <HorizontalStack/>
-            <Label text="Categories" backgroundColor="red"/>
+            <FlexboxLayout alignContent="center">
+                <Label text="Categories" class="newLabel"/>
+                <SvgImage src="~/assets/images/home/accueil_flechedroite.svg" width="10"/>
+            </FlexboxLayout>
             <HorizontalStack/>
         </StackLayout>
     </ScrollView>
@@ -24,7 +30,16 @@
 </script>
 
 <style scoped>
+    ScrollView {
+        background-color: #EEEDED;
+    }
     Label {
-        margin: 65px 50px 0px 50px;
+        font-family: OpenSans-Regular;
+        font-size: 25px;
+        color: #164194;
+    }
+
+    .newLabel {
+        margin: 15px 25px 25px 50px;
     }
 </style>

@@ -1,10 +1,12 @@
 <template>
     <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
         <StackLayout orientation="horizontal">
-            <Label text="first" height="169"  width="169" backgroundColor="#43b883"/>
-            <Label text="second" height="169" width="169" backgroundColor="#289062"/>
-            <Label text="second" height="169" width="169" backgroundColor="#289062"/>
-            <Label text="second" height="169" width="169" backgroundColor="#289062"/>
+            <Image src="~/assets/images/home/news/accueil_nouveaute1.png" width="169"/>
+            <Image src="~/assets/images/home/news/accueil_nouveaute2.png" width="169"/>
+            <Image src="~/assets/images/home/news/accueil_nouveaute3.png" width="169"/>
+            <Image src="~/assets/images/home/news/accueil_nouveaute1.png" width="169"/>
+            <Image src="~/assets/images/home/news/accueil_nouveaute2.png" width="169"/>
+            <Image src="~/assets/images/home/news/accueil_nouveaute3.png" width="169" marginRight="20"/>
         </StackLayout>
     </ScrollView>
 </template>
@@ -16,8 +18,8 @@
 </script>
 
 <style scoped>
-    Label {
-        margin: 65px 0px 0px 50px;
+    Image {
+        margin: 20px 0px 70px 50px;
     }
 
     /*Ajouter un margin right au last*/

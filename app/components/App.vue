@@ -92,7 +92,7 @@
 </script>
 
 <style scoped>
-    template {
+    Page {
         font-family: OpenSans-Regular;
     }
 </style>

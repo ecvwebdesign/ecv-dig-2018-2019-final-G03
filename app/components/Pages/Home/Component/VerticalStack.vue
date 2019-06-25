@@ -1,7 +1,8 @@
 <template>
-    <StackLayout>
-        <Label text="first" height="200" backgroundColor="#43b883"/>
-        <Label text="second" height="200" backgroundColor="#289062"/>
+    <StackLayout marginTop="20" marginBottom="20">
+        <Image src="~/assets/images/home/accueil_rectangle1.png" width="350" marginBottom="10"/>
+        <Image src="~/assets/images/home/accueil_rectangle2.png" width="350" marginBottom="10"/>
+        <Image src="~/assets/images/home/accueil_rectangle3.png" width="350" marginBottom="10"/>
     </StackLayout>
 </template>
 
