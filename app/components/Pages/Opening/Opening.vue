@@ -8,7 +8,7 @@
             <GridLayout row="2">
                 <Carousel #carousel showIndicator="true" indicatorAnimation="SWAP"
                           indicatorColor="#164194" indicatorColorUnselected="#cceeff">
-                    <CarouselItem backgroundImage="~/assets/images/opening/background/background-light.png">
+                    <CarouselItem backgroundImage="~/assets/images/opening/background/onboarding/1/background-onboarding-1.jpg">
                         <StackLayout @tap="cancelOnBoarding">
                             <Label class="pastBtn" textWrap="true" text="Passer"/>
                         </StackLayout>
@@ -20,7 +20,7 @@
                             <Label text="Commandez ou réservez tous vos produits en un clic." textWrap="true"/>
                         </FlexboxLayout>
                     </CarouselItem>
-                    <CarouselItem backgroundImage="~/assets/images/opening/background/background-light.png">
+                    <CarouselItem backgroundImage="~/assets/images/opening/background/onboarding/2/background-onboarding-2.jpg">
                         <StackLayout @tap="cancelOnBoarding">
                             <Label class="pastBtn" textWrap="true" text="Passer"/>
                         </StackLayout>
@@ -32,7 +32,7 @@
                             <Label text="Vérifiez les disponibilités en magasin." textWrap="true"/>
                         </FlexboxLayout>
                     </CarouselItem>
-                    <CarouselItem backgroundImage="~/assets/images/opening/background/background-light.png">
+                    <CarouselItem backgroundImage="~/assets/images/opening/background/onboarding/3/background-onboarding-3.jpg">
                         <StackLayout @tap="cancelOnBoarding">
                             <Label class="pastBtn" textWrap="true" text="Passer"/>
                         </StackLayout>
@@ -44,7 +44,7 @@
                             <Label text="Activez votre programme de fidélité" textWrap="true"/>
                         </FlexboxLayout>
                     </CarouselItem>
-                    <CarouselItem backgroundImage="~/assets/images/opening/background/background-light.png">
+                    <CarouselItem backgroundImage="~/assets/images/opening/background/onboarding/4/background-onboarding-4.jpg">
                         <StackLayout @tap="cancelOnBoarding">
                             <Label class="pastBtn" textWrap="true" text="Passer"/>
                         </StackLayout>
@@ -70,8 +70,8 @@
         },
         methods: {
             cancelOnBoarding() {
+                this.$store.commit('setCurrentPage', 'account');
                 this.$store.commit('setIsEverOpen', true);
-                this.$store.commit('setCurrentPage', 'home');
             },
             goToOnBoardingAction() {
                 this.$store.commit('setCurrentPage', 'onBoardingAction');

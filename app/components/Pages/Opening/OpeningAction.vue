@@ -138,7 +138,7 @@
     }
 
     .last-btn {
-        background-color: #FFFFFF;
+        background-color: transparent;
     }
 
     .active {
