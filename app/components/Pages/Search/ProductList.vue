@@ -2,13 +2,29 @@
     <StackLayout>
         <ScrollView class="margin-top">
             <FlexboxLayout flexDirection="column" justifyContent="space-around">
-                <FlexboxLayout flexDirection="column" justifyContent="space-around">
-                    <template v-for="(product, key, index) in products">
-                        <FlexboxLayout v-if="index % 2 === 0" justifyContent="space-around" width="100%" class="margin-top">
-                            <Label v-for="(product2, key2, index2) in products" v-if="index2 === index || index2 === index + 1"
-                                   :text="product2.name" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product', key2)"/>
-                        </FlexboxLayout>
-                    </template>
+                <FlexboxLayout justifyContent="space-around" width="100%" class="margin-top">
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                </FlexboxLayout>
+
+                <FlexboxLayout justifyContent="space-around" width="100%" class="margin-top">
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                </FlexboxLayout>
+
+                <FlexboxLayout justifyContent="space-around" width="100%" class="margin-top">
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                </FlexboxLayout>
+
+                <FlexboxLayout justifyContent="space-around" width="100%" class="margin-top">
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                </FlexboxLayout>
+
+                <FlexboxLayout justifyContent="space-around" width="100%" class="margin-top">
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
+                    <Label text="Produit" width="40%" height="180" backgroundColor="#43b883" @tap="changePage('product')"/>
                 </FlexboxLayout>
             </FlexboxLayout>
         </ScrollView>
@@ -31,28 +47,35 @@
             this.$store.commit('setHeader', false);
             this.$store.commit('setHeaderLabel', this.currentSubCategory.name);
 
-            let self = this;
-            firebase.getValue('/Magasins/3/Products/')
-                .then(result => {
-                    self.products = result.value;
-                    firebase.getValue('/Magasins/4/Products/')
-                        .then(result => {
-                            self.products = Object.assign(self.products, result.value);
-                            firebase.getValue('/Magasins/5/Products/')
-                                .then(result => {
-                                    self.products = Object.assign(self.products, result.value);
-                                })
-                                .catch(error => console.log("Error: " + error));
-                        })
-                        .catch(error => console.log("Error: " + error));
-                })
-                .catch(error => console.log("Error: " + error));
+            // for(let magasin in data.Magasins) {
+            //     this.products = Object.assign(this.products, data.Magasins[magasin].Products);
+            // }
+            //
+            // this.products = Object.values(this.products);
+            //
+            // console.log(this.products);
+
+            // let self = this;
+            // firebase.getValue('/Magasins/3/Products/')
+            //     .then(result => {
+            //         self.products = result.value;
+            //         firebase.getValue('/Magasins/4/Products/')
+            //             .then(result => {
+            //                 self.products = Object.assign(self.products, result.value);
+            //                 firebase.getValue('/Magasins/5/Products/')
+            //                     .then(result => {
+            //                         self.products = Object.assign(self.products, result.value);
+            //                     })
+            //                     .catch(error => console.log("Error: " + error));
+            //             })
+            //             .catch(error => console.log("Error: " + error));
+            //     })
+            //     .catch(error => console.log("Error: " + error));
         },
         methods: {
-            changePage(page, product) {
+            changePage(page) {
                 this.$store.commit('setCurrentPage', page);
                 this.$store.commit('addToHistory', page);
-                this.$store.commit('setCurrentProduct', product);
             }
         },
 
