@@ -27,7 +27,7 @@
                 <Label text="Favoris" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'favoris' ? '#164194' : ''"/>
             </StackLayout>
             <StackLayout width="20%" @tap="changePage('account')">
-                <SVGImage v-if="currentPage === 'home'" src="~/assets/icons/goods/compte-bleu.svg"
+                <SVGImage v-if="currentPage === 'account'" src="~/assets/icons/goods/compte-bleu.svg"
                           height="25"/>
                 <SVGImage v-else src="~/assets/icons/goods/compte.svg" height="25"/>
                 <Label text="Mon compte" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'account' ? '#164194' : ''"/>
