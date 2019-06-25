@@ -6,53 +6,61 @@
             <Image src="~/assets/test/intersport_card.png" margin="35"/>
             <Button text="log out" @tap="logout"></Button>
         </StackLayout>
-        <StackLayout v-else class="form">
-            <Image class="logo" src="~/assets/images/intersport.png"></Image>
+        <StackLayout v-else height="85%">
+            <Image class="logo" src="~/assets/images/intersport.png" width="70%"/>
+            <StackLayout class="form" height="78%">
+                <StackLayout class="input-field">
+                    <TextField class="input" hint="Email" keyboardType="email" autocorrect="false"
+                               autocapitalizationType="none" v-model="email" returnKeyType="next"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
 
-            <StackLayout class="input-field">
-                <TextField class="input" hint="Email" keyboardType="email" autocorrect="false"
-                           autocapitalizationType="none" v-model="email" returnKeyType="next"></TextField>
-                <StackLayout class="hr-light"></StackLayout>
+                <StackLayout class="input-field">
+                    <TextField class="input" hint="Password" secure="true" v-model="password"
+                               :returnKeyType="!displayRegister ? 'done' : 'next'"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <StackLayout v-if="displayRegister" class="input-field">
+                    <TextField class="input" hint="Confirm password" secure="true" v-model="passwordConfirm"
+                               returnKeyType="done"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+
+                <Button :text="!displayRegister ? 'Connexion' : 'Inscription'" @tap="submit"
+                        class="btn btn-primary m-t-20"></Button>
+                <Label v-if="!user" class="login-label sign-up-label" @tap="displayRegisterForm" width="100%"
+                       textAlignment="right">
+                    <FormattedString>
+                        <Span :text="!displayRegister ? 'Mot de passe oublié ?' : ''"></Span>
+                    </FormattedString>
+                </Label>
+
+                <Label text="ou" textAlignment="center" marginTop="10px" marginBottom="10px"/>
+
+                <FlexboxLayout class="btn btn-google" justifyContent="center" padding="5" @tap="signinWithGoogle">
+                    <Image src="~/assets/icons/google.png" width="10%" height="100%" marginRight="10"></Image>
+                    <Label text="Google" verticalAlignment="center" marginTop="12px"></Label>
+                </FlexboxLayout>
+
+                <FlexboxLayout class="btn btn-facebook" justifyContent="center" padding="5" @tap="signinWithFacebook">
+                    <Image src="~/assets/icons/facebook.png" width="10%" height="100%" marginRight="10"></Image>
+                    <Label text="Facebook" verticalAlignment="center" marginTop="12px"></Label>
+                </FlexboxLayout>
             </StackLayout>
-
-            <StackLayout class="input-field">
-                <TextField class="input" hint="Password" secure="true" v-model="password"
-                           :returnKeyType="!displayRegister ? 'done' : 'next'"></TextField>
-                <StackLayout class="hr-light"></StackLayout>
-            </StackLayout>
-
-            <StackLayout v-if="displayRegister" class="input-field">
-                <TextField class="input" hint="Confirm password" secure="true" v-model="passwordConfirm"
-                           returnKeyType="done"></TextField>
-                <StackLayout class="hr-light"></StackLayout>
-            </StackLayout>
-
-            <Button :text="!displayRegister ? 'Connexion' : 'Inscription'" @tap="submit"
-                    class="btn btn-primary m-t-20"></Button>
-
-            <Label text="ou" textAlignment="center" marginTop="10px" marginBottom="10px"/>
-
-            <FlexboxLayout class="btn btn-google" justifyContent="center" padding="5" @tap="signinWithGoogle">
-                <Image src="~/assets/icons/google.png" width="10%" height="100%" marginRight="10"></Image>
-                <Label text="Google" verticalAlignment="center" marginTop="12px"></Label>
-            </FlexboxLayout>
-
-            <FlexboxLayout class="btn btn-facebook" justifyContent="center" padding="5" @tap="signinWithFacebook">
-                <Image src="~/assets/icons/facebook.png" width="10%" height="100%" marginRight="10"></Image>
-                <Label text="Facebook" verticalAlignment="center" marginTop="12px"></Label>
-            </FlexboxLayout>
-
         </StackLayout>
 
-        <Label v-if="!user" class="login-label sign-up-label" @tap="displayRegisterForm">
+<!--        <Label v-if="!user" class="login-label sign-up-label" @tap="displayRegisterForm">-->
+<!--            <FormattedString>-->
+<!--                <Span :text="!displayRegister ? 'Pas encore de compte ? ' : 'Retour à la connexion'"></Span>-->
+<!--                <Span :text="!displayRegister ? 'S\'inscrire' : ''" class="bold"></Span>-->
+<!--            </FormattedString>-->
+<!--        </Label>-->
+        <Button v-if="!user" :text="!displayRegister ? 'S\'inscrire' : 'Se connecter'" @tap="displayRegisterForm"
+                class="btn btn-signup" width="330"></Button>
+        <Label v-if="!user && !isEverOpen" class="login-label sign-up-label blue-underline" @tap="redirectToHome">
             <FormattedString>
-                <Span :text="!displayRegister ? 'Pas encore de compte ? ' : 'Retour à la connexion'"></Span>
-                <Span :text="!displayRegister ? 'S\'inscrire' : ''" class="bold"></Span>
-            </FormattedString>
-        </Label>
-        <Label v-if="!user && !isEverOpen" class="login-label sign-up-label" @tap="redirectToHome">
-            <FormattedString>
-                <Span text="Continuer la navigation sans inscription" class="bold"></Span>
+                <Span text="Continuer sans s'identifier" class="blue"></Span>
             </FormattedString>
         </Label>
     </FlexboxLayout>
@@ -157,6 +165,10 @@
 </script>
 
 <style scoped>
+    FlexboxLayout {
+        font-family: OpenSans-Regular;
+    }
+
     .page {
         align-items: center;
         flex-direction: column;
@@ -188,10 +200,11 @@
     .btn-primary {
         height: 50;
         margin: 30 5 5 5;
-        background-color: #D51A1A;
+        background-color: #164194;
         border-radius: 5;
         font-size: 20;
-        font-weight: 600;
+        font-weight: normal;
+        text-transform: none;
     }
 
     .btn-google {
@@ -229,5 +242,27 @@
 
     .bold {
         color: #000000;
+    }
+
+    .blue-underline {
+        border-bottom-color: #164194;
+        border-bottom-width: 2px;
+    }
+
+    .blue {
+        color: #164194;
+    }
+    .btn-signup {
+        height: 50;
+        margin: 5 5 5 5;
+        background-color: white;
+        border-radius: 5;
+        font-size: 20;
+        font-weight: 600;
+        color: #164194;
+        text-transform: none;
+        border-color: #164194;
+        border-width: 2px;
+        margin-bottom: 45px;
     }
 </style>

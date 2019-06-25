@@ -1,6 +1,6 @@
 <template>
     <StackLayout orientation="horizontal">
-        <SearchBar width="80%"/>
+        <SearchBar width="80%" hint="Rechercher" :visibility="searchBarVisibility ? 'visible': 'hidden'"/>
         <FlexboxLayout justifyContent="space-around" width="20%">
             <Label text="SearchCode"/>
         </FlexboxLayout>
@@ -9,7 +9,17 @@
 
 <script>
     export default {
-        name: "BarSearch"
+        name: "BarSearch",
+        data() {
+            return {
+                searchBarVisibility: false
+            }
+        },
+        created() {
+        },
+        mounted() {
+            this.searchBarVisibility = true;
+        }
     }
 </script>
 

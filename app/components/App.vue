@@ -15,7 +15,11 @@
         </GridLayout>
     </Page>
     <Page actionBarHidden="true" v-else>
-        <Opening/>
+        <TopMenu/>
+        <GridLayout columns="*" rows="*">
+            <Opening v-if="currentPage !== 'onBoardingAction'"/>
+            <OpeningAction v-else/>
+        </GridLayout>
     </Page>
 </template>
 
@@ -33,10 +37,12 @@
     import SubCategories from "./Pages/Search/SubCategories";
     import ProductList from "./Pages/Search/ProductList";
     import Opening from "./Pages/Opening/Opening";
+    import OpeningAction from "./Pages/Opening/OpeningAction";
 
 
     export default {
         components: {
+            OpeningAction,
             Opening,
             ProductList,
             SubCategories, Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu
@@ -86,5 +92,7 @@
 </script>
 
 <style scoped>
-
+    template {
+        font-family: OpenSans-Regular;
+    }
 </style>

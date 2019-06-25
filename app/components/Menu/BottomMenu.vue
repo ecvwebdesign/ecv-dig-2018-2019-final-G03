@@ -1,29 +1,39 @@
 <template>
     <GridLayout rows="*,60">
-        <StackLayout row="1" orientation="horizontal" class="divider">
+        <FlexboxLayout row="1" orientation="horizontal" class="divider" height="60" alignItems="center">
             <StackLayout width="20%" @tap="changePage('home')">
-                <Image src="~/assets/icons/home.png" width="35"/>
-                <Label text="Test" width="35"/>
+                <SvgImage v-if="currentPage === 'home'" src="~/assets/icons/goods/home-bleu.svg" width="40"
+                          height="25"/>
+                <SvgImage v-else src="~/assets/icons/goods/home.svg" height="25"/>
+                <Label text="Accueil" width="100%" textAlignment="center" fontSize="10"
+                       :color="currentPage === 'home' ? '#164194' : ''"/>
             </StackLayout>
             <StackLayout width="20%" @tap="changePage('search')">
-                <Image src="~/assets/icons/home.png" width="35"/>
-                <Label text="Test" width="35"/>
+                <SvgImage v-if="currentPage === 'search'" src="~/assets/icons/goods/recherche-bleu.svg"/>
+                <SvgImage v-else src="~/assets/icons/goods/recherche.svg" height="25"/>
+                <Label text="Rechercher" width="100%" textAlignment="center" fontSize="10"
+                       :color="currentPage === 'search' ? '#164194' : ''"/>
             </StackLayout>
 
             <StackLayout width="20%" @tap="changePage('shop')">
-                <Image src="~/assets/icons/home.png" width="35"/>
-                <Label text="Test" width="35"/>
+                <SVGImage v-if="currentPage === 'shop'" src="~/assets/icons/goods/magasin-bleu.svg"
+                          height="25"/>
+                <SVGImage v-else src="~/assets/icons/goods/magasin.svg" height="25"/>
+                <Label text="Magasin" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'shop' ? '#164194' : ''"/>
             </StackLayout>
-
-            <StackLayout width="20%">
-                <Image src="~/assets/icons/home.png" width="35"/>
-                <Label text="Test" width="35"/>
+            <StackLayout width="20%" @tap="changePage('shop')">
+                <SVGImage v-if="currentPage === 'favoris'" src="~/assets/icons/goods/favoris-bleu.svg" height="25"/>
+                <SVGImage v-else src="~/assets/icons/goods/favoris.svg" height="25"/>
+                <Label text="Favoris" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'favoris' ? '#164194' : ''"/>
             </StackLayout>
             <StackLayout width="20%" @tap="changePage('account')">
-                <Image src="~/assets/icons/home.png" width="35"/>
-                <Label text="Test" width="35" class="small"/>
+                <SVGImage v-if="currentPage === 'home'" src="~/assets/icons/goods/compte-bleu.svg"
+                          height="25"/>
+                <SVGImage v-else src="~/assets/icons/goods/compte.svg" height="25"/>
+                <Label text="Mon compte" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'account' ? '#164194' : ''"/>
+
             </StackLayout>
-        </StackLayout>
+        </FlexboxLayout>
     </GridLayout>
 </template>
 
@@ -52,6 +62,11 @@
             },
             trigger() {
                 this.$refs.fileInput.click()
+            },
+        },
+        computed: {
+            currentPage() {
+                return this.$store.state.currentPage;
             }
         }
     }
@@ -63,7 +78,10 @@
     }
 
     .divider {
-        border-top-color: black;
-        border-top-width: 2px;
+        border-top-color: whitesmoke;
+        border-top-width: 5px;
+    }
+
+    .scale {
     }
 </style>
