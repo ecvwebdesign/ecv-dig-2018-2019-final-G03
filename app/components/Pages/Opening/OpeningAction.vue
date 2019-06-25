@@ -1,6 +1,6 @@
 <template>
     <TabView tabBackgroundColor="white" selectedTabTextColor="white" selectedBackgroundColor="white"
-             backgroundColor="white">
+             backgroundColor="white" :selectedIndex="selectedIndex">
         <TabViewItem>
             <FlexboxLayout flexDirection="column" justifyContent="center"
                            backgroundImage="~/assets/images/opening/background/background-light.png">
@@ -15,7 +15,7 @@
                             :class="changeColor === 'women' ? 'active' : ''" class="third-btn"/>
                     <Button text="Pour enfant" @tap="setPreferenceFor('child')"
                             :class="changeColor === 'child' ? 'active' : ''" class="third-btn"/>
-                    <Button text="Confirmer" class="btn-default" marginTop="100"/>
+                    <Button text="Confirmer" class="btn-default" marginTop="100" @tap="selectedIndex = 1"/>
                 </FlexboxLayout>
             </FlexboxLayout>
         </TabViewItem>
@@ -48,7 +48,7 @@
                         <Button text="Tennis" width="175" height="175" marginBottom="15" @tap="setInterests('tennis')"
                                 :class="getInterests('tennis') ? 'active' : ''" class="last-btn"/>
                     </FlexboxLayout>
-                    <Button text="Confirmer" class="btn-default" marginBottom="50" marginTop="20"/>
+                    <Button text="Confirmer" class="btn-default" marginBottom="50" marginTop="20" @tap="selectedIndex = 2"/>
                 </StackLayout>
             </ScrollView>
         </TabViewItem>
@@ -67,7 +67,8 @@
         data() {
             return {
                 changeColor: null,
-                interests: []
+                interests: [],
+                selectedIndex: 0
             }
         },
         methods: {
@@ -144,6 +145,7 @@
         background-color: #164194;
         color: #FFFFFF;
     }
+
     .btn-default {
         background-color: #164194;
         color: white;
