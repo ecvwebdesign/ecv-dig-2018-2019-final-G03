@@ -1,5 +1,5 @@
 <template>
-    <StackLayout backgroundColor="#eeeded">
+    <StackLayout>
         <ScrollView class="margin-top">
             <FlexboxLayout flexDirection="column" justifyContent="space-around">
                 <GridLayout height="250">
@@ -16,7 +16,14 @@
                         </CarouselItem>
                     </Carousel>
                 </GridLayout>
-                <StackLayout padding="80px" backgroundColor="white">
+                <FlexboxLayout justifyContent="center" height="150px" marginTop="5px">
+                    <FlexboxLayout justifyContent="center" width="50%">
+                        <Image src="~/assets/images/produit.png" stretch="aspectFill" class="bottom-img"/>
+                        <Image src="~/assets/images/produit.png" stretch="aspectFill" class="bottom-img"/>
+                        <Image src="~/assets/images/produit.png" stretch="aspectFill" class="bottom-img"/>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+                <StackLayout paddingBottom="80px" paddingLeft="80px" paddingRight="80px" backgroundColor="white">
                     <FlexboxLayout justifyContent="space-between">
                         <Label text="Brand" color="#164194" fontSize="30px" class="brand"/>
                         <Label text="Price" color="#164194" fontSize="22px" marginTop="12px" class="price"/>
@@ -25,13 +32,14 @@
                         <Label text="Name" color="black" fontSize="20px" class="name"/>
                         <Label text="-50%" color="#164194" fontSize="16px" marginTop="6px" class="promo"/>
                     </FlexboxLayout>
-                    <FlexboxLayout justifyContent="space-around" paddingLeft="50px" paddingRight="50px">
-                        <Label text="S" color="#164194" class="borderSize"/>
-                        <Label text="M" color="#164194" class="borderSize"/>
-                        <Label text="L" color="#164194" class="borderSize"/>
-                        <Label text="XL" color="#164194" class="borderSize"/>
+                    <FlexboxLayout class="borderSize" justifyContent="space-between" marginTop="20px" marginBottom="20px" paddingBottom="20px" paddingTop="20px">
+                        <Label text="TAILLE" color="black" class="sizeText"/>
+                        <FlexboxLayout justifyContent="flex-end" width="30%">
+                            <Label text="36" color="black" class="size"/>
+                            <Image src="~/assets/icons/deploiement-bas-bleu.png" width="40px" marginLeft="30px"></Image>
+                        </FlexboxLayout>
                     </FlexboxLayout>
-                    <FlexboxLayout justifyContent="center" marginTop="40px">
+                    <FlexboxLayout justifyContent="center" marginTop="20px">
                         <Label text="Guide des tailles" class="tailles"/>
                     </FlexboxLayout>
                 </StackLayout>
@@ -51,6 +59,9 @@
                         <Image src="~/assets/icons/deploiement-bas-bleu.png" width="50px" v-if="selectedExpansion === 'description'"></Image>
                         <Image v-else src="~/assets/icons/deploiement-droite-noir.png" width="30px"></Image>
                     </FlexboxLayout>
+                    <StackLayout v-show="selectedExpansion === 'description'" >
+                        <Label text="Description du produit"/>
+                    </StackLayout>
 
                     <FlexboxLayout justifyContent="space-between" class="expansion"
                                    :class="selectedExpansion === 'livraison' ? 'active' : ''" @tap="setSelectedExpansion('livraison')">
@@ -58,6 +69,9 @@
                         <Image src="~/assets/icons/deploiement-bas-bleu.png" width="50px" v-if="selectedExpansion === 'livraison'"></Image>
                         <Image v-else src="~/assets/icons/deploiement-droite-noir.png" width="30px"></Image>
                     </FlexboxLayout>
+                    <StackLayout v-show="selectedExpansion === 'livraison'" >
+                        <Label text="Détail de la livraison"/>
+                    </StackLayout>
 
                     <FlexboxLayout justifyContent="space-between" class="expansion"
                                    :class="selectedExpansion === 'avis' ? 'active' : ''" @tap="setSelectedExpansion('avis')">
@@ -65,8 +79,16 @@
                         <Image src="~/assets/icons/deploiement-bas-bleu.png" width="50px" v-if="selectedExpansion === 'avis'"></Image>
                         <Image v-else src="~/assets/icons/deploiement-droite-noir.png" width="30px"></Image>
                     </FlexboxLayout>
+                    <StackLayout v-show="selectedExpansion === 'avis'" >
+                        <Label text="Avis du produit"/>
+                    </StackLayout>
                 </StackLayout>
-                <HorizontalStack></HorizontalStack>
+                <StackLayout>
+                    <FlexboxLayout marginLeft="50px" marginBottom="10px" marginTop="50px">
+                        <Label text="Vous aimeriez peut-être ..." class="reco"/>
+                    </FlexboxLayout>
+                    <HorizontalStack></HorizontalStack>
+                </StackLayout>
             </FlexboxLayout>
         </ScrollView>
     </StackLayout>
@@ -107,6 +129,8 @@
         margin-top: 20px;
     }
 
+    .
+
     .brand {
         font-weight: 800;
     }
@@ -117,6 +141,11 @@
 
     .promo {
         font-weight: bold;
+    }
+
+    .size {
+        font-size: 20px;
+        font-weight: 300;
     }
 
     .tailles {
@@ -159,7 +188,23 @@
     }
 
     .expansionLabel {
+        color: black;
         font-size: 20px;
         font-weight: bold;
+    }
+
+    .reco {
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .sizeText {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .bottom-img {
+        margin: 5px;
     }
 </style>
