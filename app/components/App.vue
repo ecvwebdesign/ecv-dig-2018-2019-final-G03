@@ -10,6 +10,7 @@
                 <Shop v-if="currentPage === 'shop'"/>
                 <ShopFeature v-if="currentPage === 'shopFeatures'"/>
                 <Account v-if="currentPage === 'account'"/>
+                <Product v-if="currentPage === 'product'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -38,12 +39,14 @@
     import ProductList from "./Pages/Search/ProductList";
     import Opening from "./Pages/Opening/Opening";
     import OpeningAction from "./Pages/Opening/OpeningAction";
+    import Product from "./Pages/Product/Product";
 
 
     export default {
         components: {
             OpeningAction,
             Opening,
+            Product,
             ProductList,
             SubCategories, Account, Search, ShopFeature, Shop, Feature, Home, BottomMenu, BarCode, TopMenu
         },
