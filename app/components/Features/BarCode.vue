@@ -1,5 +1,7 @@
 <template>
-    <Button width="169" height="169" backgroundImage="~/assets/test/barcode.png" @tap="doScanWithBackCamera"/>
+    <FlexboxLayout justifyContent="space-around" width="20%" @tap="doScanWithBackCamera">
+        <SvgImage src="~/assets/icons/goods/flashcode.svg" height="50" width="35"/>
+    </FlexboxLayout>
 </template>
 
 <script>
@@ -38,14 +40,15 @@
                     closeCallback: () => {
                         console.log("Scanner closed @ " + new Date().getTime());
                     }
-                }).then(
-                    function (result) {
-                        console.log("--- scanned: " + result.text);
-                    },
+                }).then(result => this.changePage('product'),
                     function (errorMessage) {
                         console.log("No scan. " + errorMessage);
                     }
                 );
+            },
+            changePage(page) {
+                this.$store.commit('setCurrentPage', page);
+                this.$store.commit('addToHistory', page);
             }
         }
     }

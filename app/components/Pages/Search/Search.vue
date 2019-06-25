@@ -8,10 +8,11 @@
 <script>
     import CategoryList from "./Components/CategoriesList";
     import BarSearch from "./Components/BarSearch";
+    import BarCode from "../../Features/BarCode";
 
     export default {
         name: "Search",
-        components: {BarSearch, CategoryList},
+        components: {BarCode, BarSearch, CategoryList},
         created() {
             this.$store.commit('setHeader', false);
             this.$store.commit('setHeaderLabel', 'Recherche');
