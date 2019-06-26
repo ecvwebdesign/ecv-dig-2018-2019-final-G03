@@ -2,7 +2,7 @@
     <ActionBar backgroundColor="white">
         <StackLayout orientation="horizontal">
             <Image v-if="headerHasImage" src="~/assets/images/intersport.png" width="40%" marginRight="80" marginLeft="100"/>
-            <Label v-else :text="headerLabel" textAlignment="center" width="40%" fontSize="23" marginRight="80" marginLeft="100"/>
+            <Label v-else :text="headerLabel" textAlignment="center" width="40%" fontSize="16" marginRight="80" marginLeft="100" textWrap="true"/>
             <SvgImage v-if="nbProductCart === 1" src="~/assets/icons/panier-1.svg" width="60px" @tap="changePage('cart')"/>
             <SvgImage v-if="nbProductCart === 2" src="~/assets/icons/panier-2.svg" width="60px" @tap="changePage('cart')"/>
             <SvgImage v-if="nbProductCart === 3" src="~/assets/icons/panier-3.svg" width="60px" @tap="changePage('cart')"/>
@@ -38,5 +38,6 @@
     Label {
         text-transform: uppercase;
         font-weight: 600;
+        font-size: 30px;
     }
 </style>

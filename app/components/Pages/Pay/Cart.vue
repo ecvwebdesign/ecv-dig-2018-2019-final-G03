@@ -11,7 +11,7 @@
                             <Image :src="product.img" width="40%" height="100px"/>
                             <StackLayout marginLeft="50px">
                                 <FlexboxLayout>
-                                    <Label :text="product.brand + '- '" class="brand"/>
+                                    <Label :text="product.brand + ' - '" class="brand"/>
                                     <Label :text="product.name" class="name"/>
                                 </FlexboxLayout>
                                 <Label :text="product.price" class="price"/>
@@ -24,7 +24,7 @@
                                            @tap="remove(product)"
                                            width="40%"
                                            padding="5px" paddingLeft="50px"/>
-                                    <SVGImage src="~/assets/icons/goods/favoris.svg" height="15px" width="10%"/>
+                                    <SVGImage src="~/assets/icons/goods/favoris.svg" height="15px" width="10%" marginLeft="20"/>
                                 </FlexboxLayout>
                             </StackLayout>
                         </FlexboxLayout>
@@ -100,7 +100,7 @@
     }
 
     .price {
-        font-size: 20px;
+        font-size: 18px;
         color: black;
         font-weight: bold;
     }

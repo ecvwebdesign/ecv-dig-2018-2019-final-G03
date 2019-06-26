@@ -13,6 +13,7 @@
                 <Product v-if="currentPage === 'product'"/>
                 <Cart v-if="currentPage === 'cart'"/>
                 <Favoris v-if="currentPage === 'favoris'"/>
+                <HelpSeller v-if="currentPage === 'helpSeller'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -44,10 +45,12 @@
     import Product from "./Pages/Product/Product";
     import Cart from "./Pages/Pay/Cart";
     import Favoris from "./Pages/Favoris/Favoris";
+    import HelpSeller from "./Pages/Shop/Components/HelpSeller";
 
 
     export default {
         components: {
+            HelpSeller,
             Favoris,
             Cart,
             OpeningAction,

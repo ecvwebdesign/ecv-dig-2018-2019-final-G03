@@ -641,10 +641,83 @@ export default new Vuex.Store({
                 color: "black",
                 price: "10€"
             },
+            {
+                id: 7,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-1.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 8,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-2.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 9,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-3.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 10,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-4.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 11,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-5.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 12,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-6.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 13,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-7.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
+            {
+                id: 14,
+                name: 'Chaussure',
+                img: '~/assets/images/products/chaussure-foot-8.png',
+                brand: "Nike",
+                color: "black",
+                price: "59,99€"
+            },
+
         ],
         nbProductCart: 0,
         favoris: [],
         cart: [],
+        needSeller: false
     },
     mutations: {
         setHeader: (state, type) => {
@@ -698,6 +771,9 @@ export default new Vuex.Store({
         },
         addCart: (state, cart) => {
             state.cart = cart
+        },
+        setNeedSeller: (state, needSeller) => {
+            state.needSeller = needSeller
         }
     },
     actions: {}

@@ -17,7 +17,7 @@
                 </FlexboxLayout>
 
                 <FlexboxLayout backgroundColor="white" width="169" height="169" justifyContent="center"
-                               flexDirection="column" flexWrap="wrap" class="default-margin">
+                               flexDirection="column" flexWrap="wrap" class="default-margin" @tap="changePage()">
                     <SvgImage src="~/assets/images/shop/img/magasin_info.svg" height="80"/>
                     <Label text="Je demande de l'aide à un vendeur" class="subtitle" textWrap="true"/>
                 </FlexboxLayout>
@@ -37,6 +37,12 @@
     export default {
         name: "ShopFeature",
         components: {BarCode},
+        methods: {
+            changePage() {
+                this.$store.commit('setCurrentPage', 'helpSeller');
+                this.$store.commit('addToHistory', 'helpSeller');
+            },
+        },
         computed: {
             currentPage() {
                 return this.$store.state.currentPage;

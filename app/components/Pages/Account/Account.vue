@@ -1,10 +1,65 @@
 <template>
     <FlexboxLayout class="page">
         <StackLayout v-if="user">
-            <Label text="50 points" textAlignment="center" marginTop="25"/>
-            <Label :text="user.email" textAlignment="center" marginTop="25"/>
-            <Image src="~/assets/test/intersport_card.png" margin="35"/>
-            <Button text="log out" @tap="logout"></Button>
+            <StackLayout backgroundColor="#EEEDED">
+                <Label :text="user.displayName" textAlignment="center" marginTop="25" class="name"/>
+                <AbsoluteLayout @tap="updateCard">
+                    <Image src="~/assets/images/account/carte.png" marginRight="35" marginLeft="35" width="325"/>
+                    <Label width="100%" :height="displayCard ? '0' : '80'" top="125" backgroundColor="white" left="0"
+                           right="0"></Label>
+                </AbsoluteLayout>
+            </StackLayout>
+            <AbsoluteLayout marginTop="-10">
+                <FlexboxLayout>
+                    <Image src="~/assets/images/account/points.png" margin="35" width="30%"/>
+                    <FlexboxLayout flexDirection="column" alignContent="flex-start"
+                                   justifyContent="center" width="225" flexWrap="wrap">
+                        <Label textWrap="true">
+                            <FormattedString>
+                                <Span color="black" text="1 € d’achat = "></Span>
+                                <Span color="#164194" text="1 point" class="bold"></Span>
+                            </FormattedString>
+                        </Label>
+                        <Label textWrap="true" marginBottom="10">
+                            <FormattedString>
+                                <Span color="black" text="1 passage en caisse ="></Span>
+                                <Span color="#164194" text="10 points" class="bold"></Span>
+                            </FormattedString>
+                        </Label>
+                        <Label textWrap="true">
+                            <FormattedString>
+                                <Span color="black"
+                                      text="Il vous reste encore 230 points à cumuler pour pouvoir bénéficier de la remise de 10%."/>
+                            </FormattedString>
+                        </Label>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+            </AbsoluteLayout>
+            <StackLayout>
+                <template>
+                    <FlexboxLayout justifyContent="space-between" class="expansion">
+                        <Label text="Mes avantages fidélités" fontSize="15px"/>
+                        <Image src="~/assets/icons/deploiement-droite-noir.png" width="30px"/>
+                    </FlexboxLayout>
+                    <FlexboxLayout justifyContent="space-between" class="expansion">
+                        <Label text="Mes commandes" fontSize="15px"/>
+                        <Image src="~/assets/icons/deploiement-droite-noir.png" width="30px"/>
+                    </FlexboxLayout>
+                    <FlexboxLayout justifyContent="space-between" class="expansion">
+                        <Label text="Mes alertes" fontSize="15px"/>
+                        <Image src="~/assets/icons/deploiement-droite-noir.png" width="30px"/>
+                    </FlexboxLayout>
+                    <FlexboxLayout justifyContent="space-between" class="expansion">
+                        <Label text="Informations" fontSize="15px"/>
+                        <Image src="~/assets/icons/deploiement-droite-noir.png" width="30px"/>
+                    </FlexboxLayout>
+                    <FlexboxLayout justifyContent="space-between" class="expansion">
+                        <Label text="Newsletter" fontSize="15px"/>
+                        <Image src="~/assets/icons/deploiement-droite-noir.png" width="30px"/>
+                    </FlexboxLayout>
+                </template>
+            </StackLayout>
+            <Button text="Se déconnecter" @tap="logout" class="btn btn-signup" width="330"/>
         </StackLayout>
         <StackLayout v-else height="85%">
             <Image class="logo" src="~/assets/images/intersport.png" width="70%"/>
@@ -50,12 +105,12 @@
             </StackLayout>
         </StackLayout>
 
-<!--        <Label v-if="!user" class="login-label sign-up-label" @tap="displayRegisterForm">-->
-<!--            <FormattedString>-->
-<!--                <Span :text="!displayRegister ? 'Pas encore de compte ? ' : 'Retour à la connexion'"></Span>-->
-<!--                <Span :text="!displayRegister ? 'S\'inscrire' : ''" class="bold"></Span>-->
-<!--            </FormattedString>-->
-<!--        </Label>-->
+        <!--        <Label v-if="!user" class="login-label sign-up-label" @tap="displayRegisterForm">-->
+        <!--            <FormattedString>-->
+        <!--                <Span :text="!displayRegister ? 'Pas encore de compte ? ' : 'Retour à la connexion'"></Span>-->
+        <!--                <Span :text="!displayRegister ? 'S\'inscrire' : ''" class="bold"></Span>-->
+        <!--            </FormattedString>-->
+        <!--        </Label>-->
         <Button v-if="!user" :text="!displayRegister ? 'S\'inscrire' : 'Se connecter'" @tap="displayRegisterForm"
                 class="btn btn-signup" width="330"></Button>
         <Label v-if="!user && !isEverOpen" class="login-label sign-up-label blue-underline" @tap="redirectToHome">
@@ -77,6 +132,7 @@
                 password: null,
                 passwordConfirm: null,
                 displayRegister: false,
+                displayCard: false
             }
         },
         created() {
@@ -150,6 +206,9 @@
             redirectToHome() {
                 this.$store.commit('setIsEverOpen', true);
                 this.$store.commit('setCurrentPage', 'home');
+            },
+            updateCard() {
+                this.displayCard = !this.displayCard;
             }
         },
 
@@ -167,6 +226,13 @@
 <style scoped>
     FlexboxLayout {
         font-family: OpenSans-Regular;
+    }
+
+    .name {
+        font-weight: 600;
+        color: #164194;
+        text-transform: uppercase;
+        font-size: 20;
     }
 
     .page {
@@ -252,6 +318,7 @@
     .blue {
         color: #164194;
     }
+
     .btn-signup {
         height: 50;
         margin: 5 5 5 5;
@@ -264,5 +331,20 @@
         border-color: #164194;
         border-width: 2px;
         margin-bottom: 45px;
+    }
+
+    .expansion {
+        border-bottom-color: black;
+        border-bottom-width: 2px;
+        padding-left: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding: 40px 0px 40px 50px;
+        color: black;
+        font-weight: 600;
+    }
+
+    .active {
+        color: #181d9b;
     }
 </style>
