@@ -8,7 +8,17 @@
             </FlexboxLayout>
             <HorizontalStack/>
             <FlexboxLayout alignContent="center">
-                <Label text="Categories" class="newLabel"/>
+                <Label text="Vente privée" class="newLabel"/>
+                <SvgImage src="~/assets/images/home/accueil_flechedroite.svg" width="10"/>
+            </FlexboxLayout>
+            <HorizontalStack/>
+            <FlexboxLayout alignContent="center">
+                <Label text="LifeStyle" class="newLabel"/>
+                <SvgImage src="~/assets/images/home/accueil_flechedroite.svg" width="10"/>
+            </FlexboxLayout>
+            <HorizontalStack/>
+            <FlexboxLayout alignContent="center">
+                <Label text="Soldes" class="newLabel"/>
                 <SvgImage src="~/assets/images/home/accueil_flechedroite.svg" width="10"/>
             </FlexboxLayout>
             <HorizontalStack/>
@@ -33,6 +43,7 @@
     ScrollView {
         background-color: #EEEDED;
     }
+
     Label {
         font-family: OpenSans-Regular;
         font-size: 25px;

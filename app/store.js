@@ -591,6 +591,117 @@ export default new Vuex.Store({
                 distance: "59,3"
             },
         ],
+        searchQuery: '',
+        productList: [
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            },
+            {
+                name: 'Solar',
+                img: 'https://i.goopics.net/Rvoav.png'
+            },
+            {
+                name: 'Cairn',
+                img: 'https://i.goopics.net/vQbGA.png'
+            },
+            {
+                name: 'Firefly',
+                img: 'https://i.goopics.net/7qkWm.png'
+            }
+        ]
     },
     mutations: {
         setHeader: (state, type) => {
@@ -635,6 +746,9 @@ export default new Vuex.Store({
         },
         setCurrentProduct: (state, product) => {
             state.currentProduct = product;
+        },
+        setSearchQuery: (state, searchQuery) => {
+            state.searchQuery = searchQuery;
         },
     },
     actions: {}
