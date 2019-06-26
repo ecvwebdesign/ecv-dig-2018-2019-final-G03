@@ -5,37 +5,45 @@
                 <template v-if="nbProductCart > 0">
                     <Image src="~/assets/images/step-panier.png" stretch="aspectFill" height="250px"/>
                     <StackLayout>
-                        <FlexboxLayout justifyContent="center" backgroundColor="white" paddingLeft="50px" paddingRight="30px"
-                                       paddingTop="40px" paddingBottom="40px" v-for="nb in nbProductCart">
-                            <Image src="~/assets/images/produit.png" width="40%" height="100px"/>
+                        <FlexboxLayout v-for="product in cartProduct" justifyContent="center" backgroundColor="white"
+                                       paddingLeft="50px" paddingRight="30px"
+                                       paddingTop="40px" paddingBottom="40px">
+                            <Image :src="product.img" width="40%" height="100px"/>
                             <StackLayout marginLeft="50px">
                                 <FlexboxLayout>
-                                    <Label text="Brand - " class="brand"/>
-                                    <Label text="Name" class="name"/>
+                                    <Label :text="product.brand + '- '" class="brand"/>
+                                    <Label :text="product.name" class="name"/>
                                 </FlexboxLayout>
-                                <Label text="Price" class="price"/>
-                                <Label text="Taille 36 / Orange / Quantité 1" class="infos"/>
+                                <Label :text="product.price" class="price"/>
+                                <Label :text="product.color" class="infos"/>
                                 <FlexboxLayout justifyContent="space-between" marginTop="10px">
-                                    <Label text="Modifier" horizontalAlignment="center" class="edit" @tap="edit" width="40%"
+                                    <Label text="Modifier" horizontalAlignment="center" class="edit" @tap="edit"
+                                           width="40%"
                                            marginRight="15px" padding="5px" paddingLeft="50px"/>
-                                    <Label text="Supprimer" horizontalAlignment="center" class="delete" @tap="remove" width="40%"
+                                    <Label text="Supprimer" horizontalAlignment="center" class="delete"
+                                           @tap="remove(product)"
+                                           width="40%"
                                            padding="5px" paddingLeft="50px"/>
                                     <SVGImage src="~/assets/icons/goods/favoris.svg" height="15px" width="10%"/>
                                 </FlexboxLayout>
                             </StackLayout>
                         </FlexboxLayout>
+                        <Image src="~/assets/images/code-promo.png" stretch="aspectFill" height="250px" marginTop="60px"
+                               marginBottom="40px"/>
+                        <Label text="TOTAL : Price" marginBottom="20px" :color="'black'" fontSize="20px" class="total"
+                               paddingLeft="50px" paddingRight="30px"/>
+                        <Label text="(TVA incluse / Frais de livraison non inclus)" marginBottom="30px"
+                               paddingLeft="50px" paddingRight="30px"/>
 
-                        <Image src="~/assets/images/code-promo.png" stretch="aspectFill" height="250px" marginTop="60px" marginBottom="40px"/>
-                        <Label text="TOTAL : Price" marginBottom="20px" :color="'black'" fontSize="20px" class="total" paddingLeft="50px" paddingRight="30px"/>
-                        <Label text="(TVA incluse / Frais de livraison non inclus)" marginBottom="30px" paddingLeft="50px" paddingRight="30px"/>
-
-                        <Button text="JE VALIDE MON PANIER" class="btn-default" marginBottom="20" marginTop="20" @tap="changepage('livraison')"/>
+                        <Button text="JE VALIDE MON PANIER" class="btn-default" marginBottom="20" marginTop="20"
+                                @tap="changepage('livraison')"/>
                     </StackLayout>
                 </template>
                 <template v-else>
                     <StackLayout verticalAlignment="center" backgroundColor="white">
-                        <Label text="Vous n'avez aucun produits " fontSize="25px" :color="'black'" marginTop="200" textAlignment="center"/>
-                        <Label text="dans votre panier" fontSize="25px" textAlignment="center" :color="'black'" />
+                        <Label text="Vous n'avez aucun produits " fontSize="25px" :color="'black'" marginTop="200"
+                               textAlignment="center"/>
+                        <Label text="dans votre panier" fontSize="25px" textAlignment="center" :color="'black'"/>
                     </StackLayout>
                 </template>
             </StackLayout>
@@ -56,8 +64,12 @@
             edit() {
 
             },
-            remove() {
-                this.$store.commit('removeProductCart');
+            remove(id) {
+                let cartNew = this.$store.state.cart;
+                if (cartNew.includes(id)) {
+                    cartNew.splice(cartNew.indexOf(id), 1)
+                }
+                this.$store.commit('addCart', cartNew);
             },
             changepage(page) {
                 this.$store.commit('setCurrentPage', page);
@@ -67,7 +79,10 @@
 
         computed: {
             nbProductCart() {
-                return this.$store.state.nbProductCart;
+                return this.$store.state.cart.length;
+            },
+            cartProduct() {
+                return this.$store.state.cart;
             }
         }
     }

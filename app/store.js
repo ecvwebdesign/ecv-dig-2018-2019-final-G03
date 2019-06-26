@@ -594,115 +594,57 @@ export default new Vuex.Store({
         searchQuery: '',
         productList: [
             {
+                id: 1,
+                name: "Levi",
+                img: "~/assets/images/home/news/accueil_nouveaute1.png",
+                brand: "Energetics",
+                color: "black",
+                price: "10€"
+            },
+            {
+                id: 2,
+                name: "Levi",
+                img: "~/assets/images/home/news/accueil_nouveaute2.png",
+                brand: "Energetics",
+                color: "black",
+                price: "10€"
+            },
+            {
+                id: 3,
+                name: "Levi",
+                img: "~/assets/images/home/news/accueil_nouveaute3.png",
+                brand: "Energetics",
+                color: "black",
+                price: "10€"
+            },
+            {
+                id: 4,
                 name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
+                img: 'https://i.goopics.net/Rvoav.png',
+                brand: "Energetics",
+                color: "black",
+                price: "10€"
             },
             {
+                id: 5,
                 name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
+                img: 'https://i.goopics.net/vQbGA.png',
+                brand: "Energetics",
+                color: "black",
+                price: "10€"
             },
             {
+                id: 6,
                 name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
+                img: 'https://i.goopics.net/7qkWm.png',
+                brand: "Energetics",
+                color: "black",
+                price: "10€"
             },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            },
-            {
-                name: 'Solar',
-                img: 'https://i.goopics.net/Rvoav.png'
-            },
-            {
-                name: 'Cairn',
-                img: 'https://i.goopics.net/vQbGA.png'
-            },
-            {
-                name: 'Firefly',
-                img: 'https://i.goopics.net/7qkWm.png'
-            }
         ],
         nbProductCart: 0,
+        favoris: [],
+        cart: [],
     },
     mutations: {
         setHeader: (state, type) => {
@@ -751,12 +693,12 @@ export default new Vuex.Store({
         setSearchQuery: (state, searchQuery) => {
             state.searchQuery = searchQuery;
         },
-        removeProductCart: (state) => {
-            state.nbProductCart--;
+        addFavoris: (state, favoris) => {
+            state.favoris = favoris;
         },
-        addProductCart: (state) => {
-            state.nbProductCart++;
-        },
+        addCart: (state, cart) => {
+            state.cart = cart
+        }
     },
     actions: {}
 });

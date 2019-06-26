@@ -28,7 +28,7 @@
                 return this.$store.state.headerLabel;
             },
             nbProductCart() {
-                return this.$store.state.nbProductCart;
+                return this.$store.state.cart.length;
             }
         }
     }

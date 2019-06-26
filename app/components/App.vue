@@ -12,6 +12,7 @@
                 <Account v-if="currentPage === 'account'"/>
                 <Product v-if="currentPage === 'product'"/>
                 <Cart v-if="currentPage === 'cart'"/>
+                <Favoris v-if="currentPage === 'favoris'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -42,10 +43,12 @@
     import OpeningAction from "./Pages/Opening/OpeningAction";
     import Product from "./Pages/Product/Product";
     import Cart from "./Pages/Pay/Cart";
+    import Favoris from "./Pages/Favoris/Favoris";
 
 
     export default {
         components: {
+            Favoris,
             Cart,
             OpeningAction,
             Opening,

@@ -21,7 +21,7 @@
                 <SVGImage v-else src="~/assets/icons/goods/magasin.svg" height="25"/>
                 <Label text="Magasin" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'shop' ? '#164194' : ''"/>
             </StackLayout>
-            <StackLayout width="20%" @tap="changePage('shop')">
+            <StackLayout width="20%" @tap="changePage('favoris')">
                 <SVGImage v-if="currentPage === 'favoris'" src="~/assets/icons/goods/favoris-bleu.svg" height="25"/>
                 <SVGImage v-else src="~/assets/icons/goods/favoris.svg" height="25"/>
                 <Label text="Favoris" width="100%" textAlignment="center" fontSize="10" :color="currentPage === 'favoris' ? '#164194' : ''"/>
