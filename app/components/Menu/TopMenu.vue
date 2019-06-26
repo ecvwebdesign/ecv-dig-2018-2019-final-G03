@@ -2,8 +2,9 @@
     <ActionBar backgroundColor="white">
         <StackLayout orientation="horizontal">
             <Image v-if="headerHasImage" src="~/assets/images/intersport.png" width="40%" marginRight="80" marginLeft="100"/>
-            <Label v-else :text="headerLabel" textAlignment="center" width="40%" fontSize="21" marginRight="80" marginLeft="100"/>
-            <Image src="~/assets/icons/panier.png" width="6%"/>
+            <Label v-else :text="headerLabel" textAlignment="center" width="40%" fontSize="23" marginRight="80" marginLeft="100"/>
+            <SvgImage v-if="nbProductCart !== 0" src="~/assets/icons/cart.svg" width="60px"/>
+            <Image v-else src="~/assets/icons/panier.png" width="6%"/>
         </StackLayout>
     </ActionBar>
 </template>
@@ -16,6 +17,9 @@
             },
             headerLabel() {
                 return this.$store.state.headerLabel;
+            },
+            nbProductCart() {
+                return this.$store.state.nbProductCart;
             }
         }
     }
