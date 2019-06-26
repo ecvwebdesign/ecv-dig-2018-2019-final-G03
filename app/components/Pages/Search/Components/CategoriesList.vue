@@ -3,8 +3,8 @@
         <TabViewItem title="Sport">
             <ScrollView class="margin-top">
                 <FlexboxLayout flexWrap="wrap" justifyContent="center" marginTop="30">
-                    <template v-for="(category) in categories" @tap="changePage('subCategories', 'sportCo')">
-                        <Image :src="category.img" width="175" height="175" class="default-margin"/>
+                    <template v-for="(category) in categories">
+                        <Image :src="category.img" width="175" height="175" class="default-margin" @tap="changePage('subCategories', 'sportCo')"/>
                     </template>
                 </FlexboxLayout>
             </ScrollView>
