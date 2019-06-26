@@ -751,6 +751,12 @@ export default new Vuex.Store({
         setSearchQuery: (state, searchQuery) => {
             state.searchQuery = searchQuery;
         },
+        removeProductCart: (state) => {
+            state.nbProductCart--;
+        },
+        addProductCart: (state) => {
+            state.nbProductCart++;
+        },
     },
     actions: {}
 });
