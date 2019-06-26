@@ -15,6 +15,7 @@
                 <Favoris v-if="currentPage === 'favoris'"/>
                 <HelpSeller v-if="currentPage === 'helpSeller'"/>
                 <Delivery v-if="currentPage === 'livraison'"/>
+                <Paiement v-if="currentPage === 'paiement'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -48,10 +49,12 @@
     import Favoris from "./Pages/Favoris/Favoris";
     import HelpSeller from "./Pages/Shop/Components/HelpSeller";
     import Delivery from "./Pages/Pay/Delivery";
+    import Paiement from "./Pages/Pay/Paiement";
 
 
     export default {
         components: {
+            Paiement,
             HelpSeller,
             Delivery,
             Favoris,
