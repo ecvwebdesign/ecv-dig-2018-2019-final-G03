@@ -7,7 +7,7 @@
             <SvgImage v-if="nbProductCart === 2" src="~/assets/icons/panier-2.svg" width="60px" @tap="changePage('cart')"/>
             <SvgImage v-if="nbProductCart === 3" src="~/assets/icons/panier-3.svg" width="60px" @tap="changePage('cart')"/>
             <SvgImage v-if="nbProductCart === 4" src="~/assets/icons/panier-4.svg" width="60px" @tap="changePage('cart')"/>
-            <Image v-if="nbProductCart === 0" src="~/assets/icons/panier.png" width="6%" @tap="changePage('livraison')"/>
+            <Image v-if="nbProductCart === 0" src="~/assets/icons/panier.png" width="6%" @tap="changePage('cart')"/>
         </StackLayout>
     </ActionBar>
 </template>
