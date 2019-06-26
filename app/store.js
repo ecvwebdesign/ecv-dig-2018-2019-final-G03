@@ -714,7 +714,7 @@ export default new Vuex.Store({
             },
 
         ],
-        nbProductCart: 0,
+        nbProductCart: 1,
         favoris: [],
         cart: [],
         needSeller: false
