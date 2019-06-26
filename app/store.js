@@ -717,7 +717,9 @@ export default new Vuex.Store({
         nbProductCart: 0,
         favoris: [],
         cart: [],
-        needSeller: false
+        needSeller: false,
+        factuInfos: null,
+        commandes: [],
     },
     mutations: {
         setHeader: (state, type) => {
@@ -772,9 +774,18 @@ export default new Vuex.Store({
         addCart: (state, cart) => {
             state.cart = cart
         },
+        resetCart: (state) => {
+            state.cart = [];
+        },
         setNeedSeller: (state, needSeller) => {
             state.needSeller = needSeller
-        }
+        },
+        setFactuInfos: (state, factuInfos) => {
+            state.factuInfos = factuInfos;
+        },
+        addCommande: (state, commande) => {
+            state.commandes.push(commande);
+        },
     },
     actions: {}
 });
