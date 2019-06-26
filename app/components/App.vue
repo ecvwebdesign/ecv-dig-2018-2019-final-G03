@@ -11,6 +11,7 @@
                 <ShopFeature v-if="currentPage === 'shopFeatures'"/>
                 <Account v-if="currentPage === 'account'"/>
                 <Product v-if="currentPage === 'product'"/>
+                <Cart v-if="currentPage === 'cart'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -40,10 +41,12 @@
     import Opening from "./Pages/Opening/Opening";
     import OpeningAction from "./Pages/Opening/OpeningAction";
     import Product from "./Pages/Product/Product";
+    import Cart from "./Pages/Pay/Cart";
 
 
     export default {
         components: {
+            Cart,
             OpeningAction,
             Opening,
             Product,

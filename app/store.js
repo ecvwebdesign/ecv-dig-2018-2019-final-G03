@@ -701,7 +701,8 @@ export default new Vuex.Store({
                 name: 'Firefly',
                 img: 'https://i.goopics.net/7qkWm.png'
             }
-        ]
+        ],
+        nbProductCart: 0,
     },
     mutations: {
         setHeader: (state, type) => {
@@ -749,6 +750,12 @@ export default new Vuex.Store({
         },
         setSearchQuery: (state, searchQuery) => {
             state.searchQuery = searchQuery;
+        },
+        removeProductCart: (state) => {
+            state.nbProductCart--;
+        },
+        addProductCart: (state) => {
+            state.nbProductCart++;
         },
     },
     actions: {}

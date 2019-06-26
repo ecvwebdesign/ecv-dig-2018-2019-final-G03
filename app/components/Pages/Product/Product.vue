@@ -48,7 +48,7 @@
                         <Label text="Réserver en magasin" class="resamagasin"/>
                     </StackLayout>
                     <StackLayout backgroundColor="#164194" width="50%" padding="20px" height="100%">
-                        <Label text="Ajouter au panier" class="ajoutpanier"/>
+                        <Label text="Ajouter au panier" class="ajoutpanier" @tap="addToCart"/>
                     </StackLayout>
                 </StackLayout>
                 <Image src="~/assets/images/dispomagasin.png" stretch="aspectFill" marginTop="5px" marginBottom="5px"/>
@@ -108,6 +108,9 @@
         methods: {
             setSelectedExpansion(expansion) {
                 this.selectedExpansion = this.selectedExpansion === expansion ? null : expansion;
+            },
+            addToCart() {
+                this.$store.commit('addProductCart');
             }
         },
 
