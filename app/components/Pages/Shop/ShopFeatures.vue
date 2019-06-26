@@ -1,35 +1,77 @@
 <template>
     <ScrollView>
         <StackLayout>
-            <FlexboxLayout justifyContent="space-around" flexWrap="wrap">
+            <Label :text="'Bienvenue dans votre ' + currentShop.name + ' !' " textAlignment="center" class="title"
+                   textWrap="true"/>
+            <FlexboxLayout flexWrap="wrap" justifyContent="center" marginTop="30">
                 <BarCode/>
-                <Button width="169" height="169" backgroundImage="~/assets/test/search.png"/>
-                <Button width="169" height="169" backgroundImage="~/assets/test/sold.png"/>
-                <Button width="169" height="169" backgroundImage="~/assets/test/barcode.png"/>
+                <FlexboxLayout backgroundColor="white" width="169" height="169" justifyContent="center"
+                               flexDirection="column" flexWrap="wrap" class="default-margin">
+                    <SvgImage src="~/assets/images/shop/img/magasin_promo.svg" height="80"/>
+                    <Label text="Les promotions actuelles" class="subtitle" textWrap="true"/>
+                </FlexboxLayout>
+                <FlexboxLayout backgroundColor="white" width="169" height="169" justifyContent="center"
+                               flexDirection="column" flexWrap="wrap" class="default-margin">
+                    <SvgImage src="~/assets/images/shop/img/magasin_stock.svg" height="80"/>
+                    <Label text="Vérifier les stocks" class="subtitle" textWrap="true"/>
+                </FlexboxLayout>
+
+                <FlexboxLayout backgroundColor="white" width="169" height="169" justifyContent="center"
+                               flexDirection="column" flexWrap="wrap" class="default-margin">
+                    <SvgImage src="~/assets/images/shop/img/magasin_info.svg" height="80"/>
+                    <Label text="Je demande de l'aide à un vendeur" class="subtitle" textWrap="true"/>
+                </FlexboxLayout>
+                <FlexboxLayout backgroundColor="white" width="90%" height="200" justifyContent="center"
+                               flexDirection="column" flexWrap="wrap" class="default-margin">
+                    <SvgImage src="~/assets/images/shop/img/magasin_panierinteractif.svg" height="80"/>
+                    <Label text="J'ajoute des produits à mon panier virtuel" class="bottom-subtitle" textWrap="true"/>
+                </FlexboxLayout>
             </FlexboxLayout>
-            <StackLayout marginLeft="15,5" marginRight="15,5">
-                <Button text="first" height="180" backgroundColor="#43b883"/>
-                <Button text="second" height="80" backgroundColor="#289062"/>
-            </StackLayout>
         </StackLayout>
     </ScrollView>
 </template>
 
 <script>
     import BarCode from "../../Features/BarCode";
+
     export default {
         name: "ShopFeature",
         components: {BarCode},
         computed: {
             currentPage() {
                 return this.$store.state.currentPage;
+            },
+            currentShop() {
+                return this.$store.state.currentShop;
             }
         }
     }
 </script>
 
 <style scoped>
-    Button {
-        margin: 65px 0px 0px 0px;
+    Label {
+        color: #164194;
+        font-size: 20;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .title {
+        margin: 10 70 10 70;
+
+    }
+
+    .subtitle {
+        font-size: 17;
+        margin: 10 9;
+    }
+
+    .default-margin {
+        margin: 0 9 20 9;
+    }
+
+    .bottom-subtitle {
+        font-size: 17;
+        margin: 10 90;
     }
 </style>

@@ -97,5 +97,6 @@
 <style scoped>
     Page {
         font-family: OpenSans-Regular;
+        background-color: #FAFAFA;
     }
 </style>

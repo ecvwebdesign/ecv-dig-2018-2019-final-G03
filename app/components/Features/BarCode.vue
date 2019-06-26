@@ -1,6 +1,11 @@
 <template>
-    <FlexboxLayout justifyContent="space-around" width="20%" @tap="doScanWithBackCamera">
+    <FlexboxLayout v-if="currentPage !== 'shopFeatures'" justifyContent="space-around" width="20%" @tap="doScanWithBackCamera">
         <SvgImage src="~/assets/icons/goods/flashcode.svg" height="50" width="35"/>
+    </FlexboxLayout>
+    <FlexboxLayout v-else backgroundColor="white" width="169" height="169" justifyContent="center"
+                   flexDirection="column" flexWrap="wrap" class="default-margin" @tap="doScanWithBackCamera">
+        <SvgImage src="~/assets/images/shop/img/magasin_scan.svg" height="80"/>
+        <Label text="Je scanne mes produits" class="subtitle" textWrap="true"/>
     </FlexboxLayout>
 </template>
 
@@ -49,11 +54,26 @@
             changePage(page) {
                 this.$store.commit('setCurrentPage', page);
                 this.$store.commit('addToHistory', page);
+
+            }
+        },
+        computed: {
+            currentPage() {
+               return this.$store.state.currentPage;
             }
         }
     }
 </script>
 
 <style scoped>
-
+    Label {
+        color: #164194;
+        font-size: 20;
+        text-align: center;
+        font-weight: 600;
+    }
+    .subtitle {
+        font-size: 17;
+        margin: 10 9;
+    }
 </style>

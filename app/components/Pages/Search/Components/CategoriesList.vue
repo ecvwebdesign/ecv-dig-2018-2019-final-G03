@@ -1,24 +1,19 @@
 <template>
     <TabView selectedTabTextColor="#164194">
-        <TabViewItem title="Lifestyle">
-            <ScrollView class="margin-top">
-                <FlexboxLayout flexWrap="wrap" justifyContent="center" marginTop="30">
-                    <Button v-for="(categorie) in categoriesFire" :text="categorie.label" width="175" height="175"
-                            marginBottom="20"
-                            @tap="changePage('subCategories', categorie.name)" class="last-btn"/>
-                </FlexboxLayout>
-            </ScrollView>
-        </TabViewItem>
         <TabViewItem title="Sport">
             <ScrollView class="margin-top">
                 <FlexboxLayout flexWrap="wrap" justifyContent="center" marginTop="30">
-                    <template v-for="(category, key, index) in categories">
-                        <FlexboxLayout flexWrap="wrap" justifyContent="center">
-                            <Button v-for="(category2, key2, index2) in categories"
-                                    v-if="index2 === index || index2 === index + 1"
-                                    :text="category2.name" width="175" height="175" marginBottom="20" class="last-btn"
-                                    @tap="changePage('subCategories', key2)"/>
-                        </FlexboxLayout>
+                    <template v-for="(category) in categories" @tap="changePage('subCategories', 'sportCo')">
+                        <Image :src="category.img" width="175" height="175" class="default-margin"/>
+                    </template>
+                </FlexboxLayout>
+            </ScrollView>
+        </TabViewItem>
+        <TabViewItem title="Lifestyle">
+            <ScrollView class="margin-top">
+                <FlexboxLayout flexWrap="wrap" justifyContent="center" marginTop="30">
+                    <template v-for="(category) in categoriesSport">
+                        <Image :src="category.img" width="175" height="175" class="default-margin" @tap="changePage('subCategories', 'sportCo')"/>
                     </template>
                 </FlexboxLayout>
             </ScrollView>
@@ -59,6 +54,10 @@
         computed: {
             categories() {
                 return this.$store.state.categoryLabels;
+            },
+            categoriesSport() {
+                return this.$store.state.categoriesSport;
+
             }
         }
     }
@@ -76,6 +75,10 @@
         border-color: #164194;
         background-color: white;
         margin: 0px 25px 0px 25px;
+    }
+
+    .default-margin {
+        margin: 0px 15px 0px 15px;
     }
 
     .margin-bot {

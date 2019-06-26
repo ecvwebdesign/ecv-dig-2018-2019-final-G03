@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="63px" viewBox="0 0 36 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>IPHONE</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MON-MAGASIN-:-ACCUEIL" transform="translate(-91.000000, -161.000000)">
+            <g id="SCAN-PRODUITS" transform="translate(19.000000, 136.000000)">
+                <g id="IPHONE" transform="translate(74.000000, 27.000000)">
+                    <polygon id="Path" stroke="#164194" stroke-width="1.5" points="3 47 28 47 28 8 3 8"></polygon>
+                    <path d="M16,56 C14.3695652,56 13,54.6304348 13,53 C13,51.3695652 14.3695652,50 16,50 C17.6304348,50 19,51.3695652 19,53 C19,54.6956522 17.6304348,56 16,56 L16,56 Z" id="Path" fill="#164194"></path>
+                    <path d="M11.9842136,3 L19.0209727,3 C19.5716755,3 20,3.4375 20,4 C20,4.5625 19.5716755,5 19.0209727,5 L11.9842136,5 C11.4335108,5 11.0051863,4.5625 11.0051863,4 C10.9439971,3.4375 11.4335108,3 11.9842136,3 L11.9842136,3 Z" id="Path" fill="#164194"></path>
+                    <path d="M27.7209302,-0.85 C30.5474377,-0.85 32.85,1.45832479 32.85,4.28977871 L32.85,54.7102213 C32.85,57.5416752 30.5474377,59.85 27.7209302,59.85 L4.27906977,59.85 C1.45256232,59.85 -0.85,57.5416752 -0.85,54.7102213 L-0.85,4.28977871 C-0.85,1.45832479 1.45256232,-0.85 4.27906977,-0.85 L27.7209302,-0.85 Z" id="Path" stroke="#164194" stroke-width="1.7"></path>
+                    <polygon id="Fill-3" fill="#164194" points="8 33 9 33 9 23 8 23"></polygon>
+                    <polygon id="Fill-4" fill="#164194" points="6.96969697 22.0149254 10 22.0149254 10 21 6 21 6 25 6.96969697 25"></polygon>
+                    <polygon id="Fill-5" fill="#164194" points="10 32.969697 6.96969697 32.969697 6.96969697 30 6 30 6 34 10 34"></polygon>
+                    <polygon id="Fill-6" fill="#164194" points="25.030303 25 26 25 26 21 22 21 22 22.0149254 25.030303 22.0149254"></polygon>
+                    <polygon id="Fill-7" fill="#164194" points="25.030303 32.969697 22 32.969697 22 34 26 34 26 30 25.030303 30"></polygon>
+                    <polygon id="Fill-8" fill="#164194" points="13 33 14 33 14 23 13 23"></polygon>
+                    <polygon id="Fill-9" fill="#164194" points="15 33 18 33 18 23 15 23"></polygon>
+                    <polygon id="Fill-10" fill="#164194" points="18 33 19 33 19 23 18 23"></polygon>
+                    <polygon id="Fill-11" fill="#164194" points="20 33 21 33 21 23 20 23"></polygon>
+                    <polygon id="Fill-12" fill="#164194" points="22 33 24 33 24 23 22 23"></polygon>
+                    <polygon id="Fill-13" fill="#164194" points="10 33 12 33 12 23 10 23"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

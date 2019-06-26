@@ -1,9 +1,7 @@
 <template>
-    <TabView>
+    <TabView selectedTabTextColor="#164194">
         <TabViewItem title="Liste">
-            <ScrollView>
-                <ListShop/>
-            </ScrollView>
+            <ListShop/>
         </TabViewItem>
         <TabViewItem title="Cartes">
             <ScrollView>
