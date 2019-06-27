@@ -216,13 +216,6 @@
             updateCard() {
                 this.displayCard = !this.displayCard;
             },
-            afterLogin() {
-                if (this.$store.state.history[this.$store.state.history.length - 2] === 'cart') {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
         },
 
         computed: {
@@ -231,6 +224,13 @@
             },
             isEverOpen() {
                 return this.$store.state.isEverOpen;
+            },
+            afterLogin() {
+                if (this.$store.state.history[this.$store.state.history.length - 2] === 'cart' && this.$store.state.history.length >= 2) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         },
     }
