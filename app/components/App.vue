@@ -16,6 +16,7 @@
                 <HelpSeller v-if="currentPage === 'helpSeller'"/>
                 <Delivery v-if="currentPage === 'livraison'"/>
                 <Paiement v-if="currentPage === 'paiement'"/>
+                <Confirm v-if="currentPage === 'confirmpay'"/>
             </StackLayout>
             <BottomMenu/>
         </GridLayout>
@@ -50,10 +51,12 @@
     import HelpSeller from "./Pages/Shop/Components/HelpSeller";
     import Delivery from "./Pages/Pay/Delivery";
     import Paiement from "./Pages/Pay/Paiement";
+    import Confirm from "./Pages/Pay/Confirm";
 
 
     export default {
         components: {
+            Confirm,
             Paiement,
             HelpSeller,
             Delivery,

@@ -6,16 +6,32 @@
                     <Image src="~/assets/images/step3-panier.png" stretch="aspectFill" height="250px"/>
                     <StackLayout backgroundColor="white" paddingTop="40px" paddingLeft="50px" paddingRight="30px" paddingBottom="30px">
                         <Label text="ADRESSE ET FACTURATION" marginTop="30px" :color="'black'" fontSize="20px" class="font-weight-bold"/>
-                        <TextField v-model="fullname" hint="Prénom et nom"/>
-                        <TextField v-model="address" hint="Adresse"/>
-                        <TextField v-model="addressComplet" hint="Complément d'adresse"/>
-                        <FlexboxLayout justifyContent="space-between">
-                            <TextField v-model="codePostal" width="35%" hint="Code Postale"/>
-                            <TextField v-model="city" width="60%" hint="Ville"/>
-                        </FlexboxLayout>
+                        <template v-if="factuInfoStore">
+                            <Label :text="factuInfoStore.fullname" fontSize="16px" :color="'black'" marginTop="20px"/>
+                            <Label :text="factuInfoStore.address" fontSize="16px" :color="'black'" marginTop="20px"/>
+                            <Label :text="factuInfoStore.addressComplet" fontSize="16px" :color="'black'" marginTop="20px"/>
 
-                        <Image src="~/assets/images/france-metro.png" marginTop="30px"/>
-                        <TextField v-model="tel" hint="Numéro de téléphone"/>
+                            <WrapLayout>
+                                <Label :text="factuInfoStore.codePostal" fontSize="16px" :color="'black'" marginTop="20px" marginRight="15px"/>
+                                <Label :text="factuInfoStore.city" fontSize="16px" :color="'black'" marginTop="20px"/>
+                            </WrapLayout>
+
+                            <Label text="France" fontSize="16px" :color="'black'" marginTop="20px"/>
+
+                            <Label :text="factuInfoStore.tel" fontSize="16px" :color="'black'" marginTop="20px"/>
+                        </template>
+                        <template v-else>
+                            <TextField v-model="fullname" hint="Prénom et nom"/>
+                            <TextField v-model="address" hint="Adresse"/>
+                            <TextField v-model="addressComplet" hint="Complément d'adresse"/>
+                            <FlexboxLayout justifyContent="space-between">
+                                <TextField v-model="codePostal" width="35%" hint="Code Postale"/>
+                                <TextField v-model="city" width="60%" hint="Ville"/>
+                            </FlexboxLayout>
+
+                            <Image src="~/assets/images/france-metro.png" marginTop="30px"/>
+                            <TextField v-model="tel" hint="Numéro de téléphone"/>
+                        </template>
 
                     </StackLayout>
 
@@ -76,6 +92,11 @@
                 this.$store.commit('setCurrentPage', page);
                 this.$store.commit('addToHistory', page);
                 console.log(JSON.stringify(this.$store.state.commandes));
+            }
+        },
+        computed: {
+            factuInfoStore() {
+                return this.$store.state.factuInfos;
             }
         }
     }
