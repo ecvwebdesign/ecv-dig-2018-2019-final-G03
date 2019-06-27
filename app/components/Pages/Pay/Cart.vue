@@ -8,7 +8,7 @@
                         <FlexboxLayout v-for="product in cartProduct" justifyContent="center" backgroundColor="white"
                                        paddingLeft="50px" paddingRight="30px"
                                        paddingTop="40px" paddingBottom="40px">
-                            <Image :src="product.img" width="40%" height="100px"/>
+                            <Image :src="product.miniature[0]" width="40%" height="100px"/>
                             <StackLayout marginLeft="50px">
                                 <FlexboxLayout>
                                     <Label :text="product.brand + ' - '" class="brand"/>

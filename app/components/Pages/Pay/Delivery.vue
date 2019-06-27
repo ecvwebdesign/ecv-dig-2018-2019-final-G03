@@ -9,8 +9,7 @@
                                paddingLeft="50px" paddingRight="30px"/>
                         <WrapLayout height="250px" paddingTop="20px" paddingBottom="20px"
                                      paddingLeft="50px" paddingRight="30px">
-                            <Image src="~/assets/images/produit.png" marginRight="15px"/>
-                            <Image src="~/assets/images/produit.png"/>
+                            <Image v-for="product in cart" :src="product.miniature[0]" marginRight="15px"/>
                         </WrapLayout>
                         <Label text="TOTAL : PRICE" marginTop="30px" :color="'black'" fontSize="20px" class="font-weight-bold"
                                paddingLeft="50px" paddingRight="30px"/>
@@ -47,6 +46,12 @@
             changepage(page) {
                 this.$store.commit('setCurrentPage', page);
                 this.$store.commit('addToHistory', page);
+            },
+
+        },
+        computed: {
+            cart() {
+                return this.$store.state.cart;
             }
         }
     }

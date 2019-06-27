@@ -3,7 +3,7 @@
         <ScrollView class="margin-top">
             <FlexboxLayout justifyContent="space-around" flexWrap="wrap">
                 <template v-for="(product) in products">
-                    <Image v-if="product.id > 6" :src="product.img" width="120" @tap="changePage('product', product)"/>
+                    <Image v-if="product.id > 6" :src="product.img" width="169" @tap="changePage('product', product)"/>
                 </template>
             </FlexboxLayout>
         </ScrollView>
