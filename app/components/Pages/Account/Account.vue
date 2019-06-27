@@ -226,7 +226,7 @@
                 return this.$store.state.isEverOpen;
             },
             afterLogin() {
-                if (this.$store.state.history[this.$store.state.history.length - 2] === 'cart' && this.$store.state.history.length >= 2) {
+                if (this.$store.state.history.length >= 2 && this.$store.state.history[this.$store.state.history.length - 2] === 'cart') {
                     return true;
                 } else {
                     return false;
