@@ -6,21 +6,21 @@
                     <Carousel #carousel showIndicator="true" indicatorAnimation="SWAP"
                               indicatorColor="#164194" indicatorColorUnselected="#cceeff" height="100%" width="100%">
                         <CarouselItem>
-                            <Image src="~/assets/images/produit.png" stretch="aspectFill"/>
+                            <Image :src="product.miniature[0]" stretch="aspectFill"/>
                         </CarouselItem>
                         <CarouselItem>
-                            <Image src="~/assets/images/produit.png" stretch="aspectFill"/>
+                            <Image :src="product.miniature[1]" stretch="aspectFill"/>
                         </CarouselItem>
                         <CarouselItem>
-                            <Image src="~/assets/images/produit.png" stretch="aspectFill"/>
+                            <Image :src="product.miniature[2]" stretch="aspectFill"/>
                         </CarouselItem>
                     </Carousel>
                 </GridLayout>
                 <FlexboxLayout justifyContent="center" height="150px" marginTop="5px">
                     <FlexboxLayout justifyContent="center" width="50%">
-                        <Image src="~/assets/images/produit.png" stretch="aspectFill" class="bottom-img"/>
-                        <Image src="~/assets/images/produit.png" stretch="aspectFill" class="bottom-img"/>
-                        <Image src="~/assets/images/produit.png" stretch="aspectFill" class="bottom-img"/>
+                        <Image :src="product.miniature[0]" stretch="aspectFill" class="bottom-img"/>
+                        <Image :src="product.miniature[1]" stretch="aspectFill" class="bottom-img"/>
+                        <Image :src="product.miniature[2]" stretch="aspectFill" class="bottom-img"/>
                     </FlexboxLayout>
                 </FlexboxLayout>
                 <StackLayout paddingBottom="80px" paddingLeft="80px" paddingRight="80px" backgroundColor="white">

@@ -599,7 +599,12 @@ export default new Vuex.Store({
                 img: "~/assets/images/home/news/accueil_nouveaute1.png",
                 brand: "Energetics",
                 color: "black",
-                price: "10€"
+                price: "10€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
             {
                 id: 2,
@@ -607,7 +612,12 @@ export default new Vuex.Store({
                 img: "~/assets/images/home/news/accueil_nouveaute2.png",
                 brand: "Energetics",
                 color: "black",
-                price: "10€"
+                price: "10€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
             {
                 id: 3,
@@ -615,31 +625,51 @@ export default new Vuex.Store({
                 img: "~/assets/images/home/news/accueil_nouveaute3.png",
                 brand: "Energetics",
                 color: "black",
-                price: "10€"
+                price: "10€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
             {
                 id: 4,
-                name: 'Solar',
+                name: 'Lunette',
                 img: 'https://i.goopics.net/Rvoav.png',
                 brand: "Energetics",
                 color: "black",
-                price: "10€"
+                price: "10€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
             {
                 id: 5,
-                name: 'Cairn',
+                name: 'Lunette',
                 img: 'https://i.goopics.net/vQbGA.png',
                 brand: "Energetics",
                 color: "black",
-                price: "10€"
+                price: "10€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
             {
                 id: 6,
-                name: 'Firefly',
+                name: 'Lunette',
                 img: 'https://i.goopics.net/7qkWm.png',
                 brand: "Energetics",
                 color: "black",
-                price: "10€"
+                price: "10€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
             {
                 id: 7,
@@ -647,7 +677,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-1.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    '~/assets/images/products/miniature/chaussure-jaune.png',
+                    '~/assets/images/products/miniature/chaussure-orange.jpg',
+                    '~/assets/images/products/miniature/chaussure-rose.jpg'
+                ],
             },
 
             {
@@ -656,7 +691,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-2.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
             {
@@ -665,7 +705,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-3.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
             {
@@ -674,7 +719,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-4.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
             {
@@ -683,7 +733,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-5.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
             {
@@ -692,7 +747,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-6.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
             {
@@ -701,7 +761,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-7.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
             {
@@ -710,7 +775,12 @@ export default new Vuex.Store({
                 img: '~/assets/images/products/chaussure-foot-8.png',
                 brand: "Nike",
                 color: "black",
-                price: "59,99€"
+                price: "59,99€",
+                miniature: [
+                    'https://dummyimage.com/1112x1112/000/fff.png',
+                    'https://dummyimage.com/1112x1112/red/fff.png',
+                    'https://dummyimage.com/1112x1112/0000ff/fff.png'
+                ]
             },
 
         ],
