@@ -1,11 +1,10 @@
 <template>
     <FlexboxLayout class="page">
-        <StackLayout v-if="user">
+        <StackLayout v-if="user !== null">
             <StackLayout backgroundColor="#EEEDED">
-                <Label :text="user.displayName" textAlignment="center" marginTop="25" class="name"/>
                 <AbsoluteLayout @tap="updateCard">
                     <Image src="~/assets/images/account/carte.png" marginRight="35" marginLeft="35" width="325"/>
-                    <Label width="100%" :height="displayCard ? '0' : '80'" top="125" backgroundColor="white" left="0"
+                    <Label width="100%" height="80" top="125" backgroundColor="white" left="0"
                            right="0"></Label>
                 </AbsoluteLayout>
             </StackLayout>
@@ -59,7 +58,7 @@
                     </FlexboxLayout>
                 </template>
             </StackLayout>
-            <Button text="Se déconnecter" @tap="logout" class="btn btn-signup" width="330"/>
+            <Button text="Se déconnecter" @tap="logout" class="btn btn-signup" width="330" marginTop="30"/>
         </StackLayout>
         <StackLayout v-else height="85%">
             <Image class="logo" src="~/assets/images/intersport.png" width="70%"/>
@@ -231,6 +230,9 @@
                 } else {
                     return false;
                 }
+            },
+            displayName() {
+                return this.user.hasOwnProperty('displayName') ? this.user.displayName : 'toto';
             }
         },
     }
