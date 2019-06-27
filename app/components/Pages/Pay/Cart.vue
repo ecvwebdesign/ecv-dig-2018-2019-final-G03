@@ -72,8 +72,14 @@
                 this.$store.commit('addCart', cartNew);
             },
             changepage(page) {
-                this.$store.commit('setCurrentPage', page);
-                this.$store.commit('addToHistory', page);
+                if (!this.$store.state.user) {
+                    this.$store.commit('setDisplayLogin');
+                    this.$store.commit('setCurrentPage', 'account');
+                    this.$store.commit('addToHistory', 'account');
+                } else {
+                    this.$store.commit('setCurrentPage', page);
+                    this.$store.commit('addToHistory', page);
+                }
             }
         },
 

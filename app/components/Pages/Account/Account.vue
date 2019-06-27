@@ -113,7 +113,7 @@
         <!--        </Label>-->
         <Button v-if="!user" :text="!displayRegister ? 'S\'inscrire' : 'Se connecter'" @tap="displayRegisterForm"
                 class="btn btn-signup" width="330"></Button>
-        <Label v-if="!user && !isEverOpen" class="login-label sign-up-label blue-underline" @tap="redirectToHome">
+        <Label v-if="!user && (!isEverOpen || displayLogin)" class="login-label sign-up-label blue-underline" @tap="redirectToHome">
             <FormattedString>
                 <Span text="Continuer sans s'identifier" class="blue"></Span>
             </FormattedString>
@@ -204,11 +204,21 @@
                 }
             },
             redirectToHome() {
-                this.$store.commit('setIsEverOpen', true);
-                this.$store.commit('setCurrentPage', 'home');
+                if (this.displayLogin) {
+                    this.$store.commit('setCurrentPage', 'livraison');
+                    this.$store.commit('addToHistory', 'livraison');
+                    this.$store.commit('setDisplayLogin');
+                } else {
+                    this.$store.commit('setIsEverOpen', true);
+                    this.$store.commit('setCurrentPage', 'home');
+                    this.$store.commit('addToHistory', 'home');
+                }
             },
             updateCard() {
                 this.displayCard = !this.displayCard;
+            },
+            displayLogin() {
+                return this.$store.state.displayLogin;
             }
         },
 
@@ -220,6 +230,16 @@
                 return this.$store.state.isEverOpen;
             }
         },
+
+        watch: {
+            user() {
+                if (this.user && this.displayLogin) {
+                    this.$store.commit('setCurrentPage', 'livraison');
+                    this.$store.commit('addToHistory', 'livraison');
+                    this.$store.commit('setDisplayLogin');
+                }
+            }
+        }
     }
 </script>
 

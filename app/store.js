@@ -720,6 +720,7 @@ export default new Vuex.Store({
         needSeller: false,
         factuInfos: null,
         commandes: [],
+        displayLogin: false,
     },
     mutations: {
         setHeader: (state, type) => {
@@ -786,6 +787,9 @@ export default new Vuex.Store({
         addCommande: (state, commande) => {
             state.commandes.push(commande);
         },
+        setDisplayLogin: (state) => {
+            state.displayLogin = !state.displayLogin;
+        }
     },
     actions: {}
 });
