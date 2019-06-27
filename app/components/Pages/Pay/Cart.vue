@@ -73,7 +73,6 @@
             },
             changepage(page) {
                 if (!this.$store.state.user) {
-                    this.$store.commit('setDisplayLogin');
                     this.$store.commit('setCurrentPage', 'account');
                     this.$store.commit('addToHistory', 'account');
                 } else {

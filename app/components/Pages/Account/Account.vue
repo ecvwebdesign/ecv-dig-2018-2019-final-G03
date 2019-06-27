@@ -113,7 +113,7 @@
         <!--        </Label>-->
         <Button v-if="!user" :text="!displayRegister ? 'S\'inscrire' : 'Se connecter'" @tap="displayRegisterForm"
                 class="btn btn-signup" width="330"></Button>
-        <Label v-if="!user && (!isEverOpen || displayLogin)" class="login-label sign-up-label blue-underline" @tap="redirectToHome">
+        <Label v-if="!user && (!isEverOpen || afterLogin)" class="login-label sign-up-label blue-underline" @tap="redirectToHome">
             <FormattedString>
                 <Span text="Continuer sans s'identifier" class="blue"></Span>
             </FormattedString>
@@ -204,21 +204,19 @@
                 }
             },
             redirectToHome() {
-                if (this.displayLogin) {
-                    this.$store.commit('setDisplayLogin');
-                    this.$store.commit('setCurrentPage', 'livraison');
-                    this.$store.commit('addToHistory', 'livraison');
-                } else {
-                    this.$store.commit('setIsEverOpen', true);
-                    this.$store.commit('setCurrentPage', 'home');
-                    this.$store.commit('addToHistory', 'home');
-                }
+                this.$store.commit('setIsEverOpen', true);
+                this.$store.commit('setCurrentPage', 'home');
+                this.$store.commit('addToHistory', 'home');
             },
             updateCard() {
                 this.displayCard = !this.displayCard;
             },
-            displayLogin() {
-                return this.$store.state.displayLogin;
+            afterLogin() {
+                if (this.$store.state.history[this.$store.state.history.length - 2] === 'cart') {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         },
 
@@ -230,16 +228,6 @@
                 return this.$store.state.isEverOpen;
             }
         },
-
-        watch: {
-            user() {
-                if (this.user && this.displayLogin) {
-                    this.$store.commit('setDisplayLogin');
-                    this.$store.commit('setCurrentPage', 'livraison');
-                    this.$store.commit('addToHistory', 'livraison');
-                }
-            }
-        }
     }
 </script>
 
