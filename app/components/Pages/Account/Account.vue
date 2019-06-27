@@ -204,9 +204,14 @@
                 }
             },
             redirectToHome() {
-                this.$store.commit('setIsEverOpen', true);
-                this.$store.commit('setCurrentPage', 'home');
-                this.$store.commit('addToHistory', 'home');
+                if (this.afterLogin) {
+                    this.$store.commit('setCurrentPage', 'livraison');
+                    this.$store.commit('addToHistory', 'livraison');
+                } else {
+                    this.$store.commit('setIsEverOpen', true);
+                    this.$store.commit('setCurrentPage', 'home');
+                    this.$store.commit('addToHistory', 'home');
+                }
             },
             updateCard() {
                 this.displayCard = !this.displayCard;
