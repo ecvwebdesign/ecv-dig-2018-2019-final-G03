@@ -70,7 +70,7 @@
                     closeCallback: () => {
                         console.log("Scanner closed @ " + new Date().getTime());
                     }
-                }).then(result => this.changePage('product'),
+                }).then(result => this.changePage('product', this.product),
                     function (errorMessage) {
                         console.log("No scan. " + errorMessage);
                     }
@@ -97,15 +97,18 @@
                     }
                 );
             },
-            changePage(page) {
+            changePage(page, product) {
                 this.$store.commit('setCurrentPage', page);
                 this.$store.commit('addToHistory', page);
-
-            },
+                this.$store.commit('setCurrentProduct', product);
+            }
         },
         computed: {
             currentPage() {
                 return this.$store.state.currentPage;
+            },
+            product() {
+                return this.$store.state.productBarcode
             }
         }
     }
