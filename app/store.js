@@ -790,6 +790,19 @@ export default new Vuex.Store({
         needSeller: false,
         factuInfos: null,
         commandes: [],
+        productBarcode: {
+            id: 7,
+            name: 'Chaussure',
+            img: '~/assets/images/products/chaussure-foot-1.png',
+            brand: "Nike",
+            color: "black",
+            price: "59,99€",
+            miniature: [
+                '~/assets/images/products/miniature/chaussure-jaune.png',
+                '~/assets/images/products/miniature/chaussure-orange.jpg',
+                '~/assets/images/products/miniature/chaussure-rose.jpg'
+            ],
+        },
     },
     mutations: {
         setHeader: (state, type) => {
