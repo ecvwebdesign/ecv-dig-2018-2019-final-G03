@@ -205,9 +205,9 @@
             },
             redirectToHome() {
                 if (this.displayLogin) {
+                    this.$store.commit('setDisplayLogin');
                     this.$store.commit('setCurrentPage', 'livraison');
                     this.$store.commit('addToHistory', 'livraison');
-                    this.$store.commit('setDisplayLogin');
                 } else {
                     this.$store.commit('setIsEverOpen', true);
                     this.$store.commit('setCurrentPage', 'home');
@@ -234,9 +234,9 @@
         watch: {
             user() {
                 if (this.user && this.displayLogin) {
+                    this.$store.commit('setDisplayLogin');
                     this.$store.commit('setCurrentPage', 'livraison');
                     this.$store.commit('addToHistory', 'livraison');
-                    this.$store.commit('setDisplayLogin');
                 }
             }
         }
