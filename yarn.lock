@@ -629,6 +629,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@teammaestro/nativescript-svg@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@teammaestro/nativescript-svg/-/nativescript-svg-1.0.1.tgz#ce65f5aa935ae2ed4be2df98a0b49ed88ef2b2ff"
+  integrity sha512-r0Q3WqtBEd/0PglWZHbZpD6b12P5byv/GRwAo2h8aYx1T+CsjB81Y3AOk2Bejk/cvL4mPYCZlxSuCOGZQFNRQA==
+
 "@vue/component-compiler-utils@^2.5.1":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-2.6.0.tgz#aa46d2a6f7647440b0b8932434d22f12371e543b"
@@ -3106,9 +3111,9 @@ inherits@2.0.1:
   integrity sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
 
 ini@^1.3.4, ini@~1.3.0:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
-  integrity sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.7.tgz#a09363e1911972ea16d7a8851005d84cf09a9a84"
+  integrity sha512-iKpRpXP+CrP2jyrxvg1kMUpXDyRUFDWurxbnVT1vQPx+Wz9uCYsMIqYuSBLV+PAaZG/d7kRLKRFc9oDMsH+mFQ==
 
 interpret@^1.1.0:
   version "1.2.0"
@@ -3863,6 +3868,11 @@ nativescript-camera@^4.5.0:
   dependencies:
     nativescript-permissions "~1.3.0"
 
+nativescript-carousel@^4.1.0:
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/nativescript-carousel/-/nativescript-carousel-4.2.6.tgz#796905afa088ac46e109ee85e44e020588ce2b80"
+  integrity sha512-smiU0CHTT6FMUOElVZz3RI/F8qCZDQMs23GXqCnj0nBfDHZRGCmO2Kf2XnwxwXROKiQQxNcrLrmxioLQo/gFkA==
+
 nativescript-dev-webpack@0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/nativescript-dev-webpack/-/nativescript-dev-webpack-0.24.1.tgz#f78b67b4ddacac904aa2dc5f0adb8d25e4d0abd8"
@@ -3916,6 +3926,11 @@ nativescript-hook@~0.2.4:
   dependencies:
     glob "^6.0.1"
     mkdirp "^0.5.1"
+
+nativescript-loading-indicator@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/nativescript-loading-indicator/-/nativescript-loading-indicator-2.5.2.tgz#4498689bc7d5b3085420ea998a382f0540eb642a"
+  integrity sha512-BbE1xWlQSoYOZ5xPhczWC+hA/v8gPMy2n32j8QGZyF7Eyoh+IF2iWstgGpyXV+WvgNBvkax6kMRMxoQwoRFKEw==
 
 nativescript-permissions@~1.3.0:
   version "1.3.6"
