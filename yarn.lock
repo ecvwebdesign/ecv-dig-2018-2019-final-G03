@@ -629,6 +629,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@teammaestro/nativescript-svg@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@teammaestro/nativescript-svg/-/nativescript-svg-1.0.1.tgz#ce65f5aa935ae2ed4be2df98a0b49ed88ef2b2ff"
+  integrity sha512-r0Q3WqtBEd/0PglWZHbZpD6b12P5byv/GRwAo2h8aYx1T+CsjB81Y3AOk2Bejk/cvL4mPYCZlxSuCOGZQFNRQA==
+
 "@vue/component-compiler-utils@^2.5.1":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-2.6.0.tgz#aa46d2a6f7647440b0b8932434d22f12371e543b"
@@ -3863,6 +3868,11 @@ nativescript-camera@^4.5.0:
   dependencies:
     nativescript-permissions "~1.3.0"
 
+nativescript-carousel@^4.1.0:
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/nativescript-carousel/-/nativescript-carousel-4.2.6.tgz#796905afa088ac46e109ee85e44e020588ce2b80"
+  integrity sha512-smiU0CHTT6FMUOElVZz3RI/F8qCZDQMs23GXqCnj0nBfDHZRGCmO2Kf2XnwxwXROKiQQxNcrLrmxioLQo/gFkA==
+
 nativescript-dev-webpack@0.24.1:
   version "0.24.1"
   resolved "https://registry.yarnpkg.com/nativescript-dev-webpack/-/nativescript-dev-webpack-0.24.1.tgz#f78b67b4ddacac904aa2dc5f0adb8d25e4d0abd8"
@@ -3916,6 +3926,11 @@ nativescript-hook@~0.2.4:
   dependencies:
     glob "^6.0.1"
     mkdirp "^0.5.1"
+
+nativescript-loading-indicator@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/nativescript-loading-indicator/-/nativescript-loading-indicator-2.5.2.tgz#4498689bc7d5b3085420ea998a382f0540eb642a"
+  integrity sha512-BbE1xWlQSoYOZ5xPhczWC+hA/v8gPMy2n32j8QGZyF7Eyoh+IF2iWstgGpyXV+WvgNBvkax6kMRMxoQwoRFKEw==
 
 nativescript-permissions@~1.3.0:
   version "1.3.6"
@@ -4735,9 +4750,9 @@ qs@6.7.0:
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 querystring-es3@^0.2.0:
   version "0.2.1"
